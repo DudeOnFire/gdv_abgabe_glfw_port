@@ -10,6 +10,7 @@
 #include "Lighting.h"
 #include "Skybox.h"
 #include "Camera.h"
+#include "Landscape.h"
 
 //------------ Global Variables -------------
 // Notation: 
@@ -29,14 +30,15 @@ glm::vec3 g_lightPos(1.2f, 1.0f, 2.0f);
 Lighting G_light;
 ATAT G_atat;
 Skybox G_skybox;
-Camera G_camera = Camera(glm::vec3(0.5f, 2.0f, 5.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+Camera G_camera = Camera(glm::vec3(2.0f, 4.0f, 2.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+Landscape G_scape;
 
 
 //------------- Declarations ---------------
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void processInput(GLFWwindow* window);
-//void drawGrid();
+
 
 //------------- Main function ---------------
 int main() {
@@ -92,6 +94,9 @@ int main() {
 	// ATAT shader
 	G_atat.atatShader = Shader("shaders/atat_vs.vs", "shaders/atat_fs.fs");
 
+	// Landscape shader, uses same vs as ATAT
+	G_scape.landscapeShader = Shader("shaders/atat_vs.vs", "shaders/atat_fs.fs");
+
 	// Call init functions of objects
 	G_atat.atatShader.use();
 	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)g_windowSizeX / (float)g_windowSizeY, 0.1f, 100.0f);
@@ -104,6 +109,12 @@ int main() {
 
 	G_light.prepareLight();
 	g_cubemapID = G_skybox.loadSkybox();
+
+	// Landscape
+	G_scape.landscapeShader.use();
+	G_scape.landscapeShader.setInt("snowTexture", 1);
+	G_scape.landscapeShader.setMat4("projection", projection);
+	G_scape.loadLandscape();
 
 
 	// Our new RenderScene function, the main loop
@@ -122,15 +133,15 @@ int main() {
 		glClearColor(0.0f, 0.0f, 0.0f, 0.5f);							// Black Background					
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
+
 		// Draw our objects
 		G_light.generateLight(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
+		// ATAT
 		G_atat.atatShader.use();
-
 		glm::mat4 model = glm::mat4(1.0f);
 		G_atat.atatShader.setMat4("model", model);
-		// drawGrid();
-
+		
 		glm::mat4 view = G_camera.getViewMatrix();
 		G_atat.atatShader.setMat4("view", view);
 
@@ -139,8 +150,16 @@ int main() {
 
 		G_atat.initialDraw();
 
-		G_skybox.drawSkybox(G_camera.getViewMatrix(), g_cubemapID);
+		// Landscape
+		G_scape.landscapeShader.use();
+		G_scape.landscapeShader.setMat4("view", view);
+		model = glm::scale(model, glm::vec3(10.0f));
+		G_scape.landscapeShader.setMat4("model", model);
+		G_scape.landscapeShader.setMat4("projection", projection);
+		G_scape.drawLandscape();
 
+		// Skybox
+		G_skybox.drawSkybox(G_camera.getViewMatrix(), g_cubemapID);
 
 
 		// Swap buffers and get new events
@@ -244,18 +263,3 @@ void processInput(GLFWwindow* window) {
 	}
 }
 
-
-//// Draw grid
-//void drawGrid() {
-//
-//	for (float i = -500; i <= 500; i += 5)
-//	{
-//		glBegin(GL_LINES);
-//		glColor3ub(0, 0, 0);
-//		glVertex3f(-500, 0, i);
-//		glVertex3f(500, 0, i);
-//		glVertex3f(i, 0, -500);
-//		glVertex3f(i, 0, 500);
-//		glEnd();
-//	}
-//}
