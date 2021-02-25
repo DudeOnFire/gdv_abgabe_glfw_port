@@ -1,0 +1,2 @@
+C:/Users/Henrik/source/repos/gdvAbgabeV2/Include/glm/out/build/x64-Debug (default)/CMakeFiles/edit_cache.dir
+C:/Users/Henrik/source/repos/gdvAbgabeV2/Include/glm/out/build/x64-Debug (default)/CMakeFiles/rebuild_cache.dir
