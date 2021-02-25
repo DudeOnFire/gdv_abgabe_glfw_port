@@ -1,5 +1,3 @@
-# gdv_abgabe_glfw_port
-
-GDV Projekt
+# GDV Projekt
 
 Animation eines ATATs :D
