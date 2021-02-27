@@ -8,12 +8,19 @@ uniform mat4 view;
 uniform mat4 model;
 uniform mat4 projection;
 
-out vec3 ourColor;
-out vec2 TexCoord;
+
+out VS_OUT {
+	vec3 ourColor;
+	vec2 TexCoord;
+	vec3 FragPos;
+	mat4 model;
+} vs_out;
 
 void main()
 {
 	gl_Position = projection * view  * model * vec4(aPos, 1.0);
-	ourColor = aColor;
-	TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+	vs_out.ourColor = aColor;
+	vs_out.TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+	vs_out.FragPos = vec3(model * vec4(aPos, 1.0));
+	vs_out.model = model;
 }

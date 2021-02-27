@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Shader.h"
 #include "stb_image.h"
+#include "Include/glm/gtc/matrix_transform.hpp"
 
 
 class Landscape {
@@ -15,6 +16,6 @@ public:
 	GLuint scapeVAO;
 
 	void loadLandscape();
-	void drawLandscape();
+	void drawLandscape(glm::mat4 mView, glm::vec3 lightPos, glm::vec3 camPos);
 
 };

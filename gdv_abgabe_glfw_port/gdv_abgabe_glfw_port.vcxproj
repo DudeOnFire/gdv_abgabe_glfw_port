@@ -172,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\atat_fs.fs" />
+    <None Include="shaders\atat_gs.gs" />
     <None Include="shaders\atat_vs.vs" />
     <None Include="shaders\landscape_fs.fs" />
     <None Include="shaders\landscape_vs.vs" />
@@ -179,6 +180,9 @@
     <None Include="shaders\lighting.vs" />
     <None Include="shaders\light_cube.fs" />
     <None Include="shaders\light_cube.vs" />
+    <None Include="shaders\normal_display_fs.fs" />
+    <None Include="shaders\normal_display_gs.gs" />
+    <None Include="shaders\normal_display_vs.vs" />
     <None Include="shaders\skybox_fs.fs" />
     <None Include="shaders\skybox_vs.vs" />
   </ItemGroup>

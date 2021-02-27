@@ -454,10 +454,20 @@ void ATAT::redrawUpperLeg() {
 
 
 
-void ATAT::initialDraw() {
+void ATAT::initialDraw(glm::mat4 mView, glm::vec3 lightPos, glm::vec3 camPos) {
 
     glm::mat4 model = glm::mat4(1.0f);
     atatShader.use();
+    atatShader.setVec3("objectColor", 1.0f, 1.0f, 1.0f);
+    atatShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+    atatShader.setVec3("lightPos", lightPos);
+    atatShader.setVec3("viewPos", camPos);
+
+    // View/Projection transformations
+    glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)2100 / (float)1200, 0.1f, 100.0f);
+    glm::mat4 view = mView;
+    atatShader.setMat4("projection", projection);
+    atatShader.setMat4("view", view);
 
     model = glm::mat4(1.0f);
     //model = glm::rotate(model, glm::radians((float)60), glm::vec3(0.0, 1.0, 0.0));

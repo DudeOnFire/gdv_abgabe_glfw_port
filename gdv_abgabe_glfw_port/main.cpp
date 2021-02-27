@@ -26,7 +26,7 @@ float g_lastX = (float)g_windowSizeX / 2.0;
 float g_lastY = (float)g_windowSizeY / 2.0;
 bool g_firstMouseInput = true;
 unsigned int g_cubemapID;
-glm::vec3 g_lightPos(1.2f, 1.0f, 2.0f);
+glm::vec3 g_lightPos(0.0f, 8.0f, 0.0f);
 Lighting G_light;
 ATAT G_atat;
 Skybox G_skybox;
@@ -92,17 +92,18 @@ int main() {
 	G_skybox.skyboxShader = Shader("shaders/skybox_vs.vs", "shaders/skybox_fs.fs");
 
 	// ATAT shader
-	G_atat.atatShader = Shader("shaders/atat_vs.vs", "shaders/atat_fs.fs");
-
-	// Landscape shader, uses same vs as ATAT
-	G_scape.landscapeShader = Shader("shaders/atat_vs.vs", "shaders/atat_fs.fs");
+	Shader atatShader = Shader("shaders/atat_vs.vs", "shaders/atat_fs.fs", "shaders/atat_gs.gs"); //"shaders/atat_gs.gs"
+	Shader normalDrawShader = Shader("shaders/normal_display_vs.vs", "shaders/normal_display_fs.fs", "shaders/normal_display_gs.gs");
+	G_atat.atatShader = atatShader;
+	// Landscape shader
+	Shader landscapeShader = Shader("shaders/landscape_vs.vs", "shaders/landscape_fs.fs");
+	G_scape.landscapeShader = landscapeShader;
 
 	// Call init functions of objects
 	G_atat.atatShader.use();
 	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)g_windowSizeX / (float)g_windowSizeY, 0.1f, 100.0f);
 	G_atat.atatShader.setMat4("projection", projection);
 	G_atat.loadTextures();
-
 	G_atat.atatShader.setInt("darkMetalTexture", 0);
 	G_atat.drawBodySetup(2);
 	G_atat.drawLFUpperLegSetup(2);
@@ -128,6 +129,10 @@ int main() {
 		// Process Input
 		processInput(window);
 
+		// Change light position
+		//g_lightPos.x = 3.0f * sin(glfwGetTime());
+		//g_lightPos.z = 3.0f * cos(glfwGetTime());
+
 		// Set background color to black
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearColor(0.0f, 0.0f, 0.0f, 0.5f);							// Black Background					
@@ -137,26 +142,43 @@ int main() {
 		// Draw our objects
 		G_light.generateLight(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
-		// ATAT
-		G_atat.atatShader.use();
-		glm::mat4 model = glm::mat4(1.0f);
-		G_atat.atatShader.setMat4("model", model);
-		
-		glm::mat4 view = G_camera.getViewMatrix();
-		G_atat.atatShader.setMat4("view", view);
-
+		// Transformation matrices
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)g_windowSizeX / (float)g_windowSizeY, 0.1f, 100.0f);
-		G_atat.atatShader.setMat4("projection", projection);
+		glm::mat4 view = G_camera.getViewMatrix();
+		glm::mat4 model = glm::mat4(1.0f);
 
-		G_atat.initialDraw();
+		// ATAT
+		G_atat.atatShader = atatShader;
+		G_atat.atatShader.use();
+		G_atat.atatShader.setMat4("projection", projection);
+		G_atat.atatShader.setMat4("view", view);
+		G_atat.atatShader.setMat4("model", model);
+		G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+
+		// Draw normal vectors of ATAT
+		G_atat.atatShader = normalDrawShader;
+		G_atat.atatShader.use();
+		G_atat.atatShader.setMat4("projection", projection);
+		G_atat.atatShader.setMat4("view", view);
+		G_atat.atatShader.setMat4("model", model);
+		G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
 		// Landscape
+		G_scape.landscapeShader = landscapeShader;
 		G_scape.landscapeShader.use();
-		G_scape.landscapeShader.setMat4("view", view);
-		model = glm::scale(model, glm::vec3(10.0f));
-		G_scape.landscapeShader.setMat4("model", model);
 		G_scape.landscapeShader.setMat4("projection", projection);
-		G_scape.drawLandscape();
+		G_scape.landscapeShader.setMat4("view", view);
+		G_scape.landscapeShader.setMat4("model", model);
+		G_scape.drawLandscape(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+
+		
+		// Draw normal vectors of Landscape
+		G_scape.landscapeShader = normalDrawShader;
+		G_scape.landscapeShader.use();
+		G_scape.landscapeShader.setMat4("projection", projection);
+		G_scape.landscapeShader.setMat4("view", view);
+		G_scape.landscapeShader.setMat4("model", model);
+		G_scape.drawLandscape(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
 		// Skybox
 		G_skybox.drawSkybox(G_camera.getViewMatrix(), g_cubemapID);

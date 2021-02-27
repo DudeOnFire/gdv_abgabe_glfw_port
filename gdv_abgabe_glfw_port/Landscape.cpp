@@ -7,11 +7,11 @@ void Landscape::loadLandscape()
 	// Generate vertices for 2D plane
 	float vertices[] = {
 
-		// positions	   // colors		  // texture coords
-		1.0f, 0.0f, 0.0f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
-		1.0f, 0.0f, 1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,
-		0.0f, 0.0f, 1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
-		0.0f, 0.0f, 0.0f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
+		// positions	   // colors		  // texture coords  // normal vectors
+		-1.0f, 0.0f, -1.0f,  1.0f, 1.0f, 1.0f,  100.0f, 100.0f,   0.0f, 1.0f, 0.0f,
+		1.0f, 0.0f, -1.0f,  1.0f, 1.0f, 1.0f,  100.0f, 0.0f,		0.0f, 1.0f, 0.0f,
+		1.0f, 0.0f, 1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,		0.0f, 1.0f, 0.0f,
+		-1.0f, 0.0f, 1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 100.0f,		0.0f, 1.0f, 0.0f,
 	};
 
 	unsigned int indices[] = {
@@ -33,14 +33,17 @@ void Landscape::loadLandscape()
 
 	// Notify OpenGL of new vertex attributes
 	// Position
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 	// Color
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 	// Texture
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(6 * sizeof(float)));
 	glEnableVertexAttribArray(2);
+	// Normal
+	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(9 * sizeof(float)));
+	glEnableVertexAttribArray(3);
 
 	//--------- Texture ----------------------------
 
@@ -55,7 +58,7 @@ void Landscape::loadLandscape()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	int width, height, nrChannels;
-	unsigned char* data = stbi_load("resources/snow_texture.jpg", &width, &height, &nrChannels, 0);
+	unsigned char* data = stbi_load("resources/greymetal.jpg", &width, &height, &nrChannels, 0);
 
 	if (data) {
 
@@ -70,9 +73,27 @@ void Landscape::loadLandscape()
 
 }
 
-void Landscape::drawLandscape()
+void Landscape::drawLandscape(glm::mat4 mView, glm::vec3 lightPos, glm::vec3 camPos)
 {
+	
+	// Use shaders for lighting
+	landscapeShader.use();
+	landscapeShader.setVec3("objectColor", 1.0f, 1.0f, 1.0f);
+	landscapeShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+	landscapeShader.setVec3("lightPos", lightPos);
+	landscapeShader.setVec3("viewPos", camPos);
 
+	// View / Projection transformations
+	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)2100 / (float)1200, 0.1f, 100.0f);
+	glm::mat4 view = mView;
+	landscapeShader.setMat4("projection", projection);
+	landscapeShader.setMat4("view", view);
+	
+	// Set model
+	glm::mat4 model = glm::mat4(1.0f);
+	model = glm::scale(model, glm::vec3(10.0f));
+	landscapeShader.setMat4("model", model);
+	
 	// Bind texture
 	glActiveTexture(1);
 	glBindTexture(GL_TEXTURE_2D, snowTexture);
