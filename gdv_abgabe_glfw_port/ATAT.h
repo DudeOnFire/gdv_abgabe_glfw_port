@@ -28,6 +28,9 @@ public:
 	//========== 4 Beinstreben direkt am Körper ==========
 	void drawLegSupportSetup(GLfloat scale);
 
+	//========== 4 upper leg ==========
+	void drawLegSetup(GLfloat scale);
+
 
 	//========== 4 upper leg ==========
 	void drawLFUpperLegSetup(GLfloat scale);
@@ -50,11 +53,11 @@ public:
 
 
 
-
+	void redrawATAT();
 
 	void redrawBody();
 
-	void redrawUpperLeg();
+	void redrawLeg();
 
 	void loadTextures();
 
@@ -79,6 +82,52 @@ public:
 	unsigned int darkMetalTexture;
 
 
+	//==================== animation values ====================
+
+	void animateBody(GLfloat velocity, GLfloat upperLegAngle);
+
+	//0 vorne rechts
+	//1 hinten rechts
+	//2 vorne links
+	//3 hinten links
+	void animateLeg(glm::mat4 model, GLfloat x, GLfloat z, GLfloat upperLegAngle, GLfloat lowerAngle, GLfloat rotation, short type);
+
+	//true for forward, false for bachward
+	void changeUFLAnimateValues();
+	void changeRotation();
+
+	GLfloat forwardMovementRLU = -24;
+	GLfloat forwardMovementRLB = -8;
+	GLfloat forwardMovementLUF = 8;
+	GLfloat forwardMovementLUB = 24;
+
+	GLfloat lowerLegMovRF = 0;
+	GLfloat lowerLegMovRB = 0;
+	GLfloat lowerLegMovLF = 0;
+	GLfloat lowerLegMovLB = 0;
+
+
+
+	//when leg moving forward -> true, else false;
+	bool legStateRF = true;
+	bool legStateRB = false;
+	bool legStateLF = false;
+	bool legStateLB = false;
+
+
+
+	GLfloat speed = 0;
+
+	//+ für rechts, - links
+	GLfloat sidewardRotation = 0;
+
+
+	//==================== others ====================
+	glm::vec3 calcNorm(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3);
+
+	void calcSides(GLfloat& x, GLfloat& z, GLfloat speedMod, GLfloat rot);
+
+
 protected:
 	/*
 
@@ -87,6 +136,14 @@ protected:
 
 
 	*/
+
+	GLfloat currentForward = 0;
+	GLfloat currentAngle = 0;
+	GLfloat currentX = 0;
+	GLfloat currentZ = 0;
+
+
+	int scale = 2;
 
 
 	//B - middle Section

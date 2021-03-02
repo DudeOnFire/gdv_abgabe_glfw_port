@@ -107,8 +107,7 @@ int main() {
 	G_atat.atatShader.setMat4("projection", projection);
 	G_atat.loadTextures();
 	G_atat.atatShader.setInt("darkMetalTexture", 0);
-	G_atat.drawBodySetup(2);
-	G_atat.drawLFUpperLegSetup(2);
+	G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
 	G_light.prepareLight();
 	g_cubemapID = G_skybox.loadSkybox();
@@ -155,7 +154,8 @@ int main() {
 		G_atat.atatShader.setMat4("projection", projection);
 		G_atat.atatShader.setMat4("view", view);
 		G_atat.atatShader.setMat4("model", model);
-		G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+		G_atat.redrawATAT();
+		//G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
 		
 
@@ -264,6 +264,27 @@ void processInput(GLFWwindow* window) {
 
 		g_toggleNormalVectors = !g_toggleNormalVectors;
 	}
+
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+
+		G_atat.changeUFLAnimateValues();
+	}
+	else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+
+
+	}
+	else if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+
+		G_atat.sidewardRotation++;
+		G_atat.changeRotation();
+	}
+	else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+
+		G_atat.sidewardRotation--;
+		std::cout << "Right key pressed. Rotation: " << G_atat.sidewardRotation << std::endl;
+		G_atat.changeRotation();
+	}
+
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
