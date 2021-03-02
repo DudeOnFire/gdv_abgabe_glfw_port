@@ -64,7 +64,7 @@ public:
 
 	//==================== initial draw ====================
 
-	void initialDraw();
+	void initialDraw(glm::mat4 mView, glm::vec3 lightPos, glm::vec3 camPos);
 
 	//body
 	unsigned int testVBO;

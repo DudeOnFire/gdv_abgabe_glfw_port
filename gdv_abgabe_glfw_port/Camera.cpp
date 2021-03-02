@@ -4,8 +4,8 @@
 Camera::Camera(glm::vec3 pos, glm::vec3 up) : mView(glm::vec3(0.0, 0.0, 0.0))
 {
 
-	pos = glm::vec3(0.0f, 0.0f, 0.0f);
-	up = glm::vec3(0.0f, 1.0f, 0.0f);
+	mPosition = pos;
+	mUp = up;
 
 	yaw = -90.0f;
 	pitch = 0.0f;

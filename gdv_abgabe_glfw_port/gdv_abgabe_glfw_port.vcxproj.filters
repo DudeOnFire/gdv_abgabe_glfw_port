@@ -39,6 +39,9 @@
     <ClCompile Include="stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Landscape.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stb_image.h">
@@ -57,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Lighting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Landscape.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -109,6 +115,24 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shaders\atat_vs.vs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\landscape_vs.vs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\landscape_fs.fs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\atat_gs.gs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\normal_display_gs.gs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\normal_display_fs.fs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\normal_display_vs.vs">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

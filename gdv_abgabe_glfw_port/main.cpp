@@ -10,6 +10,7 @@
 #include "Lighting.h"
 #include "Skybox.h"
 #include "Camera.h"
+#include "Landscape.h"
 
 //------------ Global Variables -------------
 // Notation: 
@@ -25,18 +26,20 @@ float g_lastX = (float)g_windowSizeX / 2.0;
 float g_lastY = (float)g_windowSizeY / 2.0;
 bool g_firstMouseInput = true;
 unsigned int g_cubemapID;
-glm::vec3 g_lightPos(1.2f, 1.0f, 2.0f);
+bool g_toggleNormalVectors = false;
+glm::vec3 g_lightPos(2.0f, 10.0f, 5.0f);
 Lighting G_light;
 ATAT G_atat;
 Skybox G_skybox;
-Camera G_camera = Camera(glm::vec3(0.5f, 2.0f, 5.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+Camera G_camera = Camera(glm::vec3(2.0f, 4.0f, 2.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+Landscape G_scape;
 
 
 //------------- Declarations ---------------
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void processInput(GLFWwindow* window);
-//void drawGrid();
+
 
 //------------- Main function ---------------
 int main() {
@@ -90,20 +93,31 @@ int main() {
 	G_skybox.skyboxShader = Shader("shaders/skybox_vs.vs", "shaders/skybox_fs.fs");
 
 	// ATAT shader
-	G_atat.atatShader = Shader("shaders/atat_vs.vs", "shaders/atat_fs.fs");
+	Shader atatShader = Shader("shaders/atat_vs.vs", "shaders/atat_fs.fs", "shaders/atat_gs.gs"); //"shaders/atat_gs.gs"
+	Shader normalDrawShader = Shader("shaders/normal_display_vs.vs", "shaders/normal_display_fs.fs", "shaders/normal_display_gs.gs");
+	G_atat.atatShader = atatShader;
+
+	// Landscape shader
+	Shader landscapeShader = Shader("shaders/landscape_vs.vs", "shaders/landscape_fs.fs");
+	G_scape.landscapeShader = landscapeShader;
 
 	// Call init functions of objects
 	G_atat.atatShader.use();
 	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)g_windowSizeX / (float)g_windowSizeY, 0.1f, 100.0f);
 	G_atat.atatShader.setMat4("projection", projection);
 	G_atat.loadTextures();
-
 	G_atat.atatShader.setInt("darkMetalTexture", 0);
 	G_atat.drawBodySetup(2);
 	G_atat.drawLFUpperLegSetup(2);
 
 	G_light.prepareLight();
 	g_cubemapID = G_skybox.loadSkybox();
+
+	// Landscape
+	G_scape.landscapeShader.use();
+	G_scape.landscapeShader.setInt("snowTexture", 1);
+	G_scape.landscapeShader.setMat4("projection", projection);
+	G_scape.loadLandscape();
 
 
 	// Our new RenderScene function, the main loop
@@ -117,30 +131,65 @@ int main() {
 		// Process Input
 		processInput(window);
 
+		// Change light position
+		//g_lightPos.x = 3.0f * sin(glfwGetTime());
+		//g_lightPos.z = 3.0f * cos(glfwGetTime());
+
 		// Set background color to black
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearColor(0.0f, 0.0f, 0.0f, 0.5f);							// Black Background					
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
+
 		// Draw our objects
 		G_light.generateLight(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
-		G_atat.atatShader.use();
-
-		glm::mat4 model = glm::mat4(1.0f);
-		G_atat.atatShader.setMat4("model", model);
-		// drawGrid();
-
-		glm::mat4 view = G_camera.getViewMatrix();
-		G_atat.atatShader.setMat4("view", view);
-
+		// Transformation matrices
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)g_windowSizeX / (float)g_windowSizeY, 0.1f, 100.0f);
+		glm::mat4 view = G_camera.getViewMatrix();
+		glm::mat4 model = glm::mat4(1.0f);
+
+		// ATAT
+		G_atat.atatShader = atatShader;
+		G_atat.atatShader.use();
 		G_atat.atatShader.setMat4("projection", projection);
+		G_atat.atatShader.setMat4("view", view);
+		G_atat.atatShader.setMat4("model", model);
+		G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
-		G_atat.initialDraw();
+		
 
+		// Landscape
+		G_scape.landscapeShader = landscapeShader;
+		G_scape.landscapeShader.use();
+		G_scape.landscapeShader.setMat4("projection", projection);
+		G_scape.landscapeShader.setMat4("view", view);
+		G_scape.landscapeShader.setMat4("model", model);
+		G_scape.drawLandscape(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+
+		if (g_toggleNormalVectors) {
+
+			// Draw normal vectors of ATAT
+			G_atat.atatShader = normalDrawShader;
+			G_atat.atatShader.use();
+			G_atat.atatShader.setMat4("projection", projection);
+			G_atat.atatShader.setMat4("view", view);
+			G_atat.atatShader.setMat4("model", model);
+			G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+
+			// Draw normal vectors of Landscape
+			G_scape.landscapeShader = normalDrawShader;
+			G_scape.landscapeShader.use();
+			G_scape.landscapeShader.setMat4("projection", projection);
+			G_scape.landscapeShader.setMat4("view", view);
+			G_scape.landscapeShader.setMat4("model", model);
+			G_scape.drawLandscape(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+		}
+
+		
+
+		// Skybox
 		G_skybox.drawSkybox(G_camera.getViewMatrix(), g_cubemapID);
-
 
 
 		// Swap buffers and get new events
@@ -211,6 +260,11 @@ void processInput(GLFWwindow* window) {
 		glfwSetWindowShouldClose(window, true);
 	}
 
+	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+
+		g_toggleNormalVectors = !g_toggleNormalVectors;
+	}
+
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
 		G_camera.handleKeyboardInput(UP, g_dt);
@@ -244,18 +298,3 @@ void processInput(GLFWwindow* window) {
 	}
 }
 
-
-//// Draw grid
-//void drawGrid() {
-//
-//	for (float i = -500; i <= 500; i += 5)
-//	{
-//		glBegin(GL_LINES);
-//		glColor3ub(0, 0, 0);
-//		glVertex3f(-500, 0, i);
-//		glVertex3f(500, 0, i);
-//		glVertex3f(i, 0, -500);
-//		glVertex3f(i, 0, 500);
-//		glEnd();
-//	}
-//}

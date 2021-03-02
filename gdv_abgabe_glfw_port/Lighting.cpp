@@ -92,7 +92,7 @@ void Lighting::generateLight(glm::mat4 mView, glm::vec3 lightPos, glm::vec3 camP
 
     // World transformation
     glm::mat4 model = glm::mat4(1.0f);
-    model = glm::translate(model, glm::vec3(2.0f, 0.0f, 3.0f));
+    model = glm::translate(model, glm::vec3(0.0f, 1.0f, 5.0f));
     lightingShader.setMat4("model", model);
 
     // Render the cube

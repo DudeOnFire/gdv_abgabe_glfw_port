@@ -122,7 +122,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\Henrik\source\repos\gdv_abgabe_glfw_port\gdv_abgabe_glfw_port\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;Opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Downloads\Studium\5. Semester\GDV\glad\src\glad.c" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Landscape.cpp" />
     <ClCompile Include="Lighting.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Skybox.cpp" />
@@ -153,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="ATAT.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Landscape.h" />
     <ClInclude Include="Lighting.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Skybox.h" />
@@ -170,11 +172,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\atat_fs.fs" />
+    <None Include="shaders\atat_gs.gs" />
     <None Include="shaders\atat_vs.vs" />
+    <None Include="shaders\landscape_fs.fs" />
+    <None Include="shaders\landscape_vs.vs" />
     <None Include="shaders\lighting.fs" />
     <None Include="shaders\lighting.vs" />
     <None Include="shaders\light_cube.fs" />
     <None Include="shaders\light_cube.vs" />
+    <None Include="shaders\normal_display_fs.fs" />
+    <None Include="shaders\normal_display_gs.gs" />
+    <None Include="shaders\normal_display_vs.vs" />
     <None Include="shaders\skybox_fs.fs" />
     <None Include="shaders\skybox_vs.vs" />
   </ItemGroup>
