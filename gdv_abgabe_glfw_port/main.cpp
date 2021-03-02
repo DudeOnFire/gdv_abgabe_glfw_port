@@ -26,7 +26,8 @@ float g_lastX = (float)g_windowSizeX / 2.0;
 float g_lastY = (float)g_windowSizeY / 2.0;
 bool g_firstMouseInput = true;
 unsigned int g_cubemapID;
-glm::vec3 g_lightPos(0.0f, 8.0f, 0.0f);
+bool g_toggleNormalVectors = false;
+glm::vec3 g_lightPos(2.0f, 10.0f, 5.0f);
 Lighting G_light;
 ATAT G_atat;
 Skybox G_skybox;
@@ -95,6 +96,7 @@ int main() {
 	Shader atatShader = Shader("shaders/atat_vs.vs", "shaders/atat_fs.fs", "shaders/atat_gs.gs"); //"shaders/atat_gs.gs"
 	Shader normalDrawShader = Shader("shaders/normal_display_vs.vs", "shaders/normal_display_fs.fs", "shaders/normal_display_gs.gs");
 	G_atat.atatShader = atatShader;
+
 	// Landscape shader
 	Shader landscapeShader = Shader("shaders/landscape_vs.vs", "shaders/landscape_fs.fs");
 	G_scape.landscapeShader = landscapeShader;
@@ -155,13 +157,7 @@ int main() {
 		G_atat.atatShader.setMat4("model", model);
 		G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
-		// Draw normal vectors of ATAT
-		G_atat.atatShader = normalDrawShader;
-		G_atat.atatShader.use();
-		G_atat.atatShader.setMat4("projection", projection);
-		G_atat.atatShader.setMat4("view", view);
-		G_atat.atatShader.setMat4("model", model);
-		G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+		
 
 		// Landscape
 		G_scape.landscapeShader = landscapeShader;
@@ -171,14 +167,26 @@ int main() {
 		G_scape.landscapeShader.setMat4("model", model);
 		G_scape.drawLandscape(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
+		if (g_toggleNormalVectors) {
+
+			// Draw normal vectors of ATAT
+			G_atat.atatShader = normalDrawShader;
+			G_atat.atatShader.use();
+			G_atat.atatShader.setMat4("projection", projection);
+			G_atat.atatShader.setMat4("view", view);
+			G_atat.atatShader.setMat4("model", model);
+			G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+
+			// Draw normal vectors of Landscape
+			G_scape.landscapeShader = normalDrawShader;
+			G_scape.landscapeShader.use();
+			G_scape.landscapeShader.setMat4("projection", projection);
+			G_scape.landscapeShader.setMat4("view", view);
+			G_scape.landscapeShader.setMat4("model", model);
+			G_scape.drawLandscape(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+		}
+
 		
-		// Draw normal vectors of Landscape
-		G_scape.landscapeShader = normalDrawShader;
-		G_scape.landscapeShader.use();
-		G_scape.landscapeShader.setMat4("projection", projection);
-		G_scape.landscapeShader.setMat4("view", view);
-		G_scape.landscapeShader.setMat4("model", model);
-		G_scape.drawLandscape(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
 		// Skybox
 		G_skybox.drawSkybox(G_camera.getViewMatrix(), g_cubemapID);
@@ -250,6 +258,11 @@ void processInput(GLFWwindow* window) {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 
 		glfwSetWindowShouldClose(window, true);
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+
+		g_toggleNormalVectors = !g_toggleNormalVectors;
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)

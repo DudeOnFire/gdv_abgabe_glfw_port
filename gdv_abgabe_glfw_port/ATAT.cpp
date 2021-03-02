@@ -460,7 +460,7 @@ void ATAT::initialDraw(glm::mat4 mView, glm::vec3 lightPos, glm::vec3 camPos) {
     atatShader.use();
     atatShader.setVec3("objectColor", 1.0f, 1.0f, 1.0f);
     atatShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
-    atatShader.setVec3("lightPos", lightPos);
+    atatShader.setVec3("lightDirection", lightPos);
     atatShader.setVec3("viewPos", camPos);
 
     // View/Projection transformations

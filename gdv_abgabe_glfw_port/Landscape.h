@@ -17,5 +17,6 @@ public:
 
 	void loadLandscape();
 	void drawLandscape(glm::mat4 mView, glm::vec3 lightPos, glm::vec3 camPos);
+	unsigned int loadTexture(const char* path);
 
 };
