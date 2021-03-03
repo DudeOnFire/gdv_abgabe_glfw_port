@@ -18,7 +18,7 @@ void main()
 {
     
     // Ambient lighting
-    float ambientStrength = 0.3;
+    float ambientStrength = 0.5;
     vec3 ambient = ambientStrength * lightColor;
 
 

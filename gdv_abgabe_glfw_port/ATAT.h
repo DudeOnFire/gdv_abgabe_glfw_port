@@ -133,10 +133,24 @@ protected:
 
 	//========== neck ========== 0.8 max
 	GLfloat neckwidthMod = 0.06f;		//bLowerWidth - zSlopeMod - cWidthMod - neckwidthMod -> 0.12+0.03 - 0.02 - 0.02 - 0.05 = 0.06
-	GLfloat neckLength = 0.15f;
+	GLfloat neckLength = 0.1f;
 	GLfloat neckHight = 0.18f;
 	GLfloat neckLowerHightMod = 0.02f;
 	GLfloat neckMiddleWidth = 0.02f;
+
+	//========== head ==========
+	GLfloat headLowerWidth = 0.13f;
+	GLfloat headUpperWidth = 0.1f;
+	GLfloat headLowerBackHight = 0.02f;
+	GLfloat headBackHight = 0.2f;
+	GLfloat headFLWidth = 0.05f;
+	GLfloat headHight = bLowerHight + neckLowerHightMod + headBackHight;
+
+	//head lowerLength
+	GLfloat headBackSidePos = cUpperLenth + bLength + zLengthMod + neckLength;
+	GLfloat headLowerLength = 0.25f;
+	GLfloat upperSlopeMod = 0.05f;
+	GLfloat upperSLopeLengthMod = 0.05f;
 
 
 private:

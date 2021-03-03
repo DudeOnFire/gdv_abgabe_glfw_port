@@ -58,7 +58,7 @@ void Landscape::drawLandscape(glm::mat4 mView, glm::vec3 lightPos, glm::vec3 cam
 	// Use shaders for lighting
 	landscapeShader.use();
 	landscapeShader.setVec3("objectColor", 1.0f, 1.0f, 1.0f); 
-	landscapeShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f); 
+	landscapeShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
 	landscapeShader.setVec3("lightDirection", lightPos);
 	landscapeShader.setVec3("viewPos", camPos);
 	
