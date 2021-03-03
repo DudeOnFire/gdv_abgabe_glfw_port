@@ -564,7 +564,7 @@ void ATAT::animateBody(GLfloat velocity, GLfloat upperLegAngle) {
 	}
 
 	//im Endeffekt 1 oder 0, je nachdem ob es weitergehen soll oder nicht. Kann später noch verändert werden.
-	forwardSpeed = speed / 120;
+	forwardSpeed = speed / 50;
 
 	GLfloat newX = 0;
 	GLfloat newZ = 0;

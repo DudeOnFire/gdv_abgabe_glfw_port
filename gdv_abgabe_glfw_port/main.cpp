@@ -175,7 +175,8 @@ int main() {
 			G_atat.atatShader.setMat4("projection", projection);
 			G_atat.atatShader.setMat4("view", view);
 			G_atat.atatShader.setMat4("model", model);
-			G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+			G_atat.redrawATAT();
+			//G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
 			// Draw normal vectors of Landscape
 			G_scape.landscapeShader = normalDrawShader;
