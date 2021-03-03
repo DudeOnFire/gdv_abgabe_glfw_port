@@ -113,7 +113,7 @@ int main() {
 	G_atat.atatShader.setInt("darkMetalTexture", 0);
 	G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
-	G_light.prepareLight();
+	//G_light.prepareLight();
 	g_cubemapID = G_skybox.loadSkybox();
 
 	// Landscape
@@ -145,7 +145,7 @@ int main() {
 
 
 		// Draw our objects
-		G_light.generateLight(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+		//G_light.generateLight(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
 		// Transformation matrices
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)g_windowSizeX / (float)g_windowSizeY, 0.1f, 100.0f);
