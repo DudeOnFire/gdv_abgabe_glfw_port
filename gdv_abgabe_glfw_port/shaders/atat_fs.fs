@@ -35,8 +35,8 @@ void main(void)
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
     vec3  specular = specularStrength * spec * lightColor;
 
-    vec3 result = (ambient + diffuse);
 
 
+    vec3 result = (ambient + diffuse + specular);
 	FragColor = texture(darkMetalTexture, fs_in.TexCoord) * vec4(result, 1.0f);
 }

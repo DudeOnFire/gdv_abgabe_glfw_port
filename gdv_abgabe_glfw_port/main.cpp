@@ -28,6 +28,10 @@ bool g_firstMouseInput = true;
 unsigned int g_cubemapID;
 bool g_toggleNormalVectors = false;
 glm::vec3 g_lightPos(2.0f, 10.0f, 5.0f);
+glm::vec3 g_flDirection(0.5f, 1.0f, 0.0f);
+glm::vec3 g_flPosition(0.5f, 1.0f, 0.0f);
+float g_cutOffAngle = 12.5f;
+float g_outerCutOffAngle = 17.5f;
 Lighting G_light;
 ATAT G_atat;
 Skybox G_skybox;
@@ -165,6 +169,11 @@ int main() {
 		G_scape.landscapeShader.setMat4("projection", projection);
 		G_scape.landscapeShader.setMat4("view", view);
 		G_scape.landscapeShader.setMat4("model", model);
+		G_scape.landscapeShader.setVec3("light.position", g_flPosition);
+		G_scape.landscapeShader.setVec3("light.direction", g_flDirection);
+		G_scape.landscapeShader.setVec3("light.color", 1.0f, 1.0f, 1.0f);
+		G_scape.landscapeShader.setFloat("light.cutOff", glm::cos(glm::radians(g_cutOffAngle)));
+		G_scape.landscapeShader.setFloat("light.outerCutOff", glm::cos(glm::radians(g_outerCutOffAngle)));
 		G_scape.drawLandscape(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
 		if (g_toggleNormalVectors) {
