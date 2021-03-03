@@ -235,6 +235,61 @@ void ATAT::drawBodySetup(GLfloat scale) {
 	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //85
 	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //86
 	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //87
+
+
+	//========== neck ==========
+
+	//unterseite
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, (bLowerHight+ neckLowerHightMod )* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //90
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, (bLowerHight + neckLowerHightMod)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //91
+	(cUpperLenth + bLength + zLengthMod)* scale, (bLowerHight + neckLowerHightMod)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //89
+	(cUpperLenth + bLength + zLengthMod)* scale, (bLowerHight + neckLowerHightMod)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //88
+
+	//oberseite
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //92
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //93
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //94
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //95
+
+	//rechts oben
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight))* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //96
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (neckwidthMod + neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //97
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (neckwidthMod + neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //98
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //99
+
+	//rechts unten
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (neckwidthMod + neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //100
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, (bLowerHight + neckLowerHightMod)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //101
+	(cUpperLenth + bLength + zLengthMod)* scale, (bLowerHight + neckLowerHightMod)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //102
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (neckwidthMod + neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //103
+
+
+	//links oben
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight))* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //104
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (-neckwidthMod - neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //105
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (-neckwidthMod - neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //106
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //107
+
+	//links unten
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (-neckwidthMod - neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //108
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, (bLowerHight + neckLowerHightMod)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //109
+	(cUpperLenth + bLength + zLengthMod)* scale, (bLowerHight + neckLowerHightMod)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //110
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (-neckwidthMod - neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //111
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	};
 	unsigned int indices[] = {  // note that we start from 0!
 		0, 1, 2,
@@ -302,6 +357,24 @@ void ATAT::drawBodySetup(GLfloat scale) {
 
 		84, 85, 86,
 		86, 87, 84,
+
+		88, 89, 90,
+		90, 91, 88,
+
+		92, 93, 94,
+		94, 95, 92,
+
+		96, 97, 98,
+		98, 99, 96,
+
+		100, 101, 102,
+		102, 103, 100,
+
+		104, 105, 106,
+		106, 107, 104,
+
+		108, 109, 110,
+		110, 111, 108,
 	};
 
 	glGenVertexArrays(1, &testVAO);
@@ -387,7 +460,7 @@ void ATAT::redrawBody()
 	glBindTexture(GL_TEXTURE_2D, darkMetalTexture);
 
 	glBindVertexArray(testVAO);
-	glDrawElements(GL_TRIANGLES, 132, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 168, GL_UNSIGNED_INT, 0);
 	//glBindVertexArray(0);
 	//glActiveTexture(0);
 }
@@ -564,7 +637,7 @@ void ATAT::animateBody(GLfloat velocity, GLfloat upperLegAngle) {
 	}
 
 	//im Endeffekt 1 oder 0, je nachdem ob es weitergehen soll oder nicht. Kann später noch verändert werden.
-	forwardSpeed = speed / 120;
+	forwardSpeed = speed / 500;
 
 	GLfloat newX = 0;
 	GLfloat newZ = 0;
@@ -665,8 +738,6 @@ void ATAT::animateLeg(glm::mat4 model, GLfloat x, GLfloat z, GLfloat upperLegAng
 void ATAT::changeAnimateValues() {
 	
 	speed++;
-
-
 
 	//========== rechts vorne ==========
 	//von ganz vorne nach hinten
