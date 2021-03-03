@@ -20,7 +20,7 @@ void ATAT::calcSides(GLfloat& x, GLfloat& z, GLfloat speedMod, GLfloat rotation)
 	GLfloat a = 0;
 	GLfloat b = 0;
 
-	//linksdrehung die ersten 90Grad || rechtsdrehung für die letzten 90 Grad => +X -Z
+	//linksdrehung die ersten 90Grad || rechtsdrehung f?r die letzten 90 Grad => +X -Z
 	if ((alpha >= 0 && alpha <= 90) || (alpha <= -270 && alpha >= -360)) {
 		if (alpha >= 0) {
 			beta = 180 - gamma - alpha;
@@ -35,7 +35,7 @@ void ATAT::calcSides(GLfloat& x, GLfloat& z, GLfloat speedMod, GLfloat rotation)
 		x = b;
 		z = -a;
 	}
-	//linksdrehung der 2. 90 Grad || rechtsdrehung für die 3. 90 Grad => -X -Z
+	//linksdrehung der 2. 90 Grad || rechtsdrehung f?r die 3. 90 Grad => -X -Z
 	else if ((alpha >= 90 && alpha <= 180) || (alpha <= -180 && alpha >= -270)) {
 		if (alpha >= 0) {
 			beta = 180 - gamma - (alpha - 90);
@@ -52,7 +52,7 @@ void ATAT::calcSides(GLfloat& x, GLfloat& z, GLfloat speedMod, GLfloat rotation)
 		x = -a;
 		z = -b;
 	}
-	//linksdrehung der 3. 90 Grad || rechtsdrehung für die 2. 90 Grad => -X Z
+	//linksdrehung der 3. 90 Grad || rechtsdrehung f?r die 2. 90 Grad => -X Z
 	else if ((alpha >= 180 && alpha <= 270) || (alpha <= -90 && alpha >= -180)) {
 		if (alpha >= 0) {
 			beta = 180 - gamma - (alpha - 180);
@@ -70,7 +70,7 @@ void ATAT::calcSides(GLfloat& x, GLfloat& z, GLfloat speedMod, GLfloat rotation)
 		z = a;
 	}
 
-	//linksdrehung der 4. 90 Grad ||rechtsdrehung für die 1. 90 Grad => X Z
+	//linksdrehung der 4. 90 Grad ||rechtsdrehung f?r die 1. 90 Grad => X Z
 	else if ((alpha >= 270 && alpha <= 360) || (alpha <= -0 && alpha >= -90)) {
 		if (alpha >= 0) {
 			beta = 180 - gamma - (alpha - 270);
@@ -120,27 +120,27 @@ void ATAT::drawBodySetup(GLfloat scale) {
 	(-bLength) * scale,  bUpperHight * scale, bUpperWidth * scale,         1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     //                  14
 	(-bLength) * scale, bUpperHight * scale, (-bUpperWidth) * scale,       1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     //                  15
 
-	//========== schrägen hinten ==========
+	//========== schr?gen hinten ==========
 
-	//linke schrägseite
+	//linke schr?gseite
 	(-bLength) * scale,  bUpperHight * scale, (-bUpperWidth) * scale,                                           1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 16 top right
 	(-bLength) * scale, bLowerHight * scale, (-bLowerWidth) * scale,                                           1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 17 bottom left
 	(-bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,                  1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 18 bottom
 	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,    1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 19 top right
 
-	//untere Schrägseite
+	//untere Schr?gseite
 	(-bLength) * scale,  bLowerHight * scale, (-bLowerWidth) * scale,                                          1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 20 top right
 	(-bLength) * scale, bLowerHight * scale, (bLowerWidth)*scale,                                            1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 21 bottom left
 	(-bLength - zLengthMod) * scale,  bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,                  1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 22 top right
 	(-bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,                  1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 23 bottom left
 
-	//rechte schrägseite
+	//rechte schr?gseite
 	(-bLength) * scale,  bUpperHight * scale, (bUpperWidth)*scale,                                           1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 24 top right
 	(-bLength) * scale, bLowerHight * scale, (bLowerWidth)*scale,                                            1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 25 bottom left
 	(-bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,                   1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 26 bottom
 	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,    1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 27 top right
 
-	//obere Schrägseite
+	//obere Schr?gseite
 	 (-bLength) * scale,  bUpperHight * scale, (-bUpperWidth) * scale,                                         1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 28 top right
 	(-bLength) * scale, bUpperHight * scale, (bUpperWidth)*scale,                                            1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 29 bottom left
 	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,    1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 30 top right
@@ -178,27 +178,27 @@ void ATAT::drawBodySetup(GLfloat scale) {
 	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,                                     1.0f, 1.0f, 1.0f,       0.0f, 0.0f, //50
 	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,                                    1.0f, 1.0f, 1.0f,       0.0f, 1.0f, //51
 
-	//========== schrägen vorne ==========
+	//========== schr?gen vorne ==========
 
-	 //linke schrägseite
+	 //linke schr?gseite
 	(bLength)*scale,  bUpperHight * scale, (-bUpperWidth) * scale,                                           1.0f, 1.0f, 1.0f,       0.2f, 1.0f,     // 52 top right
 	(bLength)*scale, bLowerHight * scale, (-bLowerWidth) * scale,                                            1.0f, 1.0f, 1.0f,       0.2f, 0.0f,     // 53 bottom left
 	(bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,                   1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 54 bottom
 	(bLength + zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,    1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 55 top right
 
-	//untere Schrägseite
+	//untere Schr?gseite
 	(bLength)*scale,  bLowerHight * scale, (-bLowerWidth) * scale,                                           1.0f, 1.0f, 1.0f,       0.2f, 1.0f,     // 56 top right
 	(bLength)*scale, bLowerHight * scale, (bLowerWidth)*scale,                                              1.0f, 1.0f, 1.0f,       0.2f, 0.0f,     // 57 bottom left
 	(bLength + zLengthMod) * scale,  bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,                   1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 58 top right
 	(bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,                   1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 59 bottom left
 
-	//rechte schrägseite
+	//rechte schr?gseite
 	(bLength)*scale,  bUpperHight * scale, (bUpperWidth)*scale,                                             1.0f, 1.0f, 1.0f,       0.2f, 1.0f,     // 60 top right
 	(bLength)*scale, bLowerHight * scale, (bLowerWidth)*scale,                                               1.0f, 1.0f, 1.0f,       0.2f, 0.0f,     // 61 bottom left
 	(bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,                    1.0f, 1.0f, 1.0f,   0.0f, 0.0f,     // 62 bottom
 	(bLength + zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,     1.0f, 1.0f, 1.0f,    0.0f, 1.0f,     // 63 top right
 
-	//obere Schrägseite
+	//obere Schr?gseite
 	 (bLength)*scale,  bUpperHight * scale, (-bUpperWidth) * scale,                                               1.0f, 1.0f, 1.0f,       0.5f, 0.3f,     // 64 top right
 	(bLength)*scale, bUpperHight * scale, (bUpperWidth)*scale,                                                   1.0f, 1.0f, 1.0f,       0.0f, 0.3f,     // 65 bottom left
 	(bLength + zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,         1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 66 top right
@@ -235,6 +235,61 @@ void ATAT::drawBodySetup(GLfloat scale) {
 	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //85
 	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //86
 	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //87
+
+
+	//========== neck ==========
+
+	//unterseite
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, (bLowerHight+ neckLowerHightMod )* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //90
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, (bLowerHight + neckLowerHightMod)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //91
+	(cUpperLenth + bLength + zLengthMod)* scale, (bLowerHight + neckLowerHightMod)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //89
+	(cUpperLenth + bLength + zLengthMod)* scale, (bLowerHight + neckLowerHightMod)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //88
+
+	//oberseite
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //92
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //93
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //94
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //95
+
+	//rechts oben
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight))* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //96
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (neckwidthMod + neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //97
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (neckwidthMod + neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //98
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //99
+
+	//rechts unten
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (neckwidthMod + neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //100
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, (bLowerHight + neckLowerHightMod)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //101
+	(cUpperLenth + bLength + zLengthMod)* scale, (bLowerHight + neckLowerHightMod)* scale, (neckwidthMod)*scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //102
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (neckwidthMod + neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //103
+
+
+	//links oben
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight))* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //104
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (-neckwidthMod - neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //105
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (-neckwidthMod - neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //106
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + neckHight)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //107
+
+	//links unten
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (-neckwidthMod - neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //108
+	(cUpperLenth + bLength + zLengthMod + neckLength)* scale, (bLowerHight + neckLowerHightMod)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //109
+	(cUpperLenth + bLength + zLengthMod)* scale, (bLowerHight + neckLowerHightMod)* scale, (-neckwidthMod)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //110
+	(cUpperLenth + bLength + zLengthMod)* scale, ((bLowerHight + neckLowerHightMod) + (neckHight / 2))* scale, (-neckwidthMod - neckMiddleWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //111
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	};
 	unsigned int indices[] = {  // note that we start from 0!
 		0, 1, 2,
@@ -302,6 +357,24 @@ void ATAT::drawBodySetup(GLfloat scale) {
 
 		84, 85, 86,
 		86, 87, 84,
+
+		88, 89, 90,
+		90, 91, 88,
+
+		92, 93, 94,
+		94, 95, 92,
+
+		96, 97, 98,
+		98, 99, 96,
+
+		100, 101, 102,
+		102, 103, 100,
+
+		104, 105, 106,
+		106, 107, 104,
+
+		108, 109, 110,
+		110, 111, 108,
 	};
 
 	glGenVertexArrays(1, &testVAO);
@@ -387,7 +460,7 @@ void ATAT::redrawBody()
 	glBindTexture(GL_TEXTURE_2D, darkMetalTexture);
 
 	glBindVertexArray(testVAO);
-	glDrawElements(GL_TRIANGLES, 132, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 168, GL_UNSIGNED_INT, 0);
 	//glBindVertexArray(0);
 	//glActiveTexture(0);
 }
@@ -555,7 +628,7 @@ void ATAT::animateBody(GLfloat velocity, GLfloat upperLegAngle) {
 	GLfloat rotation = sidewardRotation;
 	GLfloat forwardSpeed = 0;
 
-	//taste gedrückt oder nicht, wird am Ende wieder resettet. Wird ein Schritt gemacht oder nicht
+	//taste gedr?ckt oder nicht, wird am Ende wieder resettet. Wird ein Schritt gemacht oder nicht
 	if (speed > 0) {
 		speed = 1;
 	}
@@ -563,13 +636,13 @@ void ATAT::animateBody(GLfloat velocity, GLfloat upperLegAngle) {
 		speed = 0;
 	}
 
-	//im Endeffekt 1 oder 0, je nachdem ob es weitergehen soll oder nicht. Kann später noch verändert werden.
-	forwardSpeed = speed / 50;
+	//im Endeffekt 1 oder 0, je nachdem ob es weitergehen soll oder nicht. Kann sp?ter noch ver?ndert werden.
+	forwardSpeed = speed / 500;
 
 	GLfloat newX = 0;
 	GLfloat newZ = 0;
 
-	//seiten für den neuen Vector berechnen. forwardSpeed ist entweder 0 oder 1
+	//seiten f?r den neuen Vector berechnen. forwardSpeed ist entweder 0 oder 1
 	if (forwardSpeed != 0) {
 		calcSides(newX, newZ, forwardSpeed, rotation);
 	}
@@ -578,7 +651,7 @@ void ATAT::animateBody(GLfloat velocity, GLfloat upperLegAngle) {
 		newZ = 0;
 	}
 
-	//zurück zum Ursprung
+	//zur?ck zum Ursprung
 	model = glm::translate(model, glm::vec3(currentX + newX, 0.0, currentZ + newZ));
 	atatShader.setMat4("model", model);
 
@@ -630,7 +703,7 @@ void ATAT::animateLeg(glm::mat4 model, GLfloat x, GLfloat z, GLfloat upperLegAng
 		legPosZ = -bLowerWidth;
 	}
 
-	//höhe des Beins
+	//h?he des Beins
 	GLfloat height = upperLegHeight * scale;
 
 	//========== movement des oberen Beins ==========
@@ -666,8 +739,6 @@ void ATAT::changeAnimateValues() {
 	
 	speed++;
 
-
-
 	//========== rechts vorne ==========
 	//von ganz vorne nach hinten
 	if (forwardMovementRLU > -24 && legStateRF == false) {
@@ -677,7 +748,7 @@ void ATAT::changeAnimateValues() {
 	else if (forwardMovementRLU == -24 && legStateRF == false) {
 		legStateRF = true;
 	}
-	//Bein läuft nach vorne
+	//Bein l?uft nach vorne
 	else if (forwardMovementRLU < 24 && legStateRF == true) {
 		forwardMovementRLU++;
 
@@ -702,7 +773,7 @@ void ATAT::changeAnimateValues() {
 	else if (forwardMovementLUF == -24 && legStateLF == false) {
 		legStateLF = true;
 	}
-	//Bein läuft nach vorne
+	//Bein l?uft nach vorne
 	else if (forwardMovementLUF < 24 && legStateLF == true) {
 		forwardMovementLUF++;
 
@@ -727,7 +798,7 @@ void ATAT::changeAnimateValues() {
 	else if (forwardMovementRLB == -24 && legStateRB == false) {
 		legStateRB = true;
 	}
-	//Bein läuft nach vorne
+	//Bein l?uft nach vorne
 	else if (forwardMovementRLB < 24 && legStateRB == true) {
 		forwardMovementRLB++;
 
@@ -752,7 +823,7 @@ void ATAT::changeAnimateValues() {
 	else if (forwardMovementLUB == -24 && legStateLB == false) {
 		legStateLB = true;
 	}
-	//Bein läuft nach vorne
+	//Bein l?uft nach vorne
 	else if (forwardMovementLUB < 24 && legStateLB == true) {
 		forwardMovementLUB++;
 
