@@ -116,12 +116,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Henrik\source\repos\gdv_abgabe_glfw_port\gdv_abgabe_glfw_port\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Henrik\source\repos\gdv_abgabe_glfw_port\gdv_abgabe_glfw_port\include;D:\Documents\Uni\WS2020\GDV\AbgabeV3\gdv_abgabe_glfw_port\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Henrik\source\repos\gdv_abgabe_glfw_port\gdv_abgabe_glfw_port\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Henrik\source\repos\gdv_abgabe_glfw_port\gdv_abgabe_glfw_port\lib;D:\Documents\Uni\WS2020\GDV\AbgabeV3\gdv_abgabe_glfw_port\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;Opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -142,7 +142,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\Studium\5. Semester\GDV\glad\src\glad.c" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Landscape.cpp" />
     <ClCompile Include="Lighting.cpp" />

@@ -267,7 +267,7 @@ void processInput(GLFWwindow* window) {
 
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
 
-		G_atat.changeUFLAnimateValues();
+		G_atat.changeAnimateValues();
 	}
 	else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
 
