@@ -82,7 +82,8 @@ int main() {
 	}
 
 	G_SoundEngine = irrklang::createIrrKlangDevice();
-	G_SoundSrc = G_SoundEngine->addSoundSourceFromFile("resources/AT_AT_Sound_Effect.mp3");
+	//G_SoundSrc = G_SoundEngine->addSoundSourceFromFile("resources/AT_AT_Sound_Effect.mp3");
+	G_SoundSrc = G_SoundEngine->addSoundSourceFromFile("resources/ImperialMarch.mp3");
 	G_Sound = G_SoundEngine->play2D(G_SoundSrc, true, true, true);
 
 	glEnable(GL_DEPTH_TEST);
@@ -300,6 +301,8 @@ void processInput(GLFWwindow* window) {
 
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
 
+		std::cout << "up arrow key pressed " << std::endl;
+
 		g_playWalkingSound = true;
 		G_atat.changeAnimateValues();
 	}
@@ -309,16 +312,19 @@ void processInput(GLFWwindow* window) {
 		g_playWalkingSound = false;
 	}
 	else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+		std::cout << "down arrow key pressed " << std::endl;
 
 
 	}
 	else if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
 
+		std::cout << "left arrow key pressed " << std::endl;
 		G_atat.sidewardRotation++;
 		G_atat.changeRotation();
 	}
 	else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
 
+		std::cout << "right arrow key pressed " << std::endl;
 		G_atat.sidewardRotation--;
 		G_atat.changeRotation();
 	}
