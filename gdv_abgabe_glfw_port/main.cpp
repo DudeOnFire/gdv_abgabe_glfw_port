@@ -6,6 +6,7 @@
 #include <glad/glad.h> // Glad first, then GLFW
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <irrKlang/irrKlang.h>
 #include "ATAT.h"
 #include "Lighting.h"
 #include "Skybox.h"
@@ -27,6 +28,7 @@ float g_lastY = (float)g_windowSizeY / 2.0;
 bool g_firstMouseInput = true;
 unsigned int g_cubemapID;
 bool g_toggleNormalVectors = false;
+bool g_playWalkingSound = false;
 glm::vec3 g_lightPos(2.0f, 10.0f, 5.0f);
 glm::vec3 g_flDirection(0.5f, 1.0f, 0.0f);
 glm::vec3 g_flPosition(0.5f, 1.0f, 0.0f);
@@ -37,6 +39,9 @@ ATAT G_atat;
 Skybox G_skybox;
 Camera G_camera = Camera(glm::vec3(2.0f, 4.0f, 2.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 Landscape G_scape;
+irrklang::ISoundEngine* G_SoundEngine;
+irrklang::ISoundSource* G_SoundSrc;
+irrklang::ISound* G_Sound;
 
 
 //------------- Declarations ---------------
@@ -75,6 +80,10 @@ int main() {
 		std::cout << "Failed to initialize GLAD" << std::endl;
 		return -1;
 	}
+
+	G_SoundEngine = irrklang::createIrrKlangDevice();
+	G_SoundSrc = G_SoundEngine->addSoundSourceFromFile("resources/AT_AT_Sound_Effect.mp3");
+	G_Sound = G_SoundEngine->play2D(G_SoundSrc, true, true, true);
 
 	glEnable(GL_DEPTH_TEST);
 
@@ -143,6 +152,20 @@ int main() {
 		glClearColor(0.0f, 0.0f, 0.0f, 0.5f);							// Black Background					
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
+		// Generate sound
+		if (g_playWalkingSound && G_Sound->getIsPaused()) {
+			
+			G_Sound = G_SoundEngine->play2D(G_SoundSrc, true, false, true);
+		}
+		else if(g_playWalkingSound && !G_Sound->getIsPaused()) {
+
+			
+		}
+		else if (!g_playWalkingSound){
+
+			G_Sound->setIsPaused(true);
+		}
+		
 
 		// Draw our objects
 		//G_light.generateLight(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
@@ -277,7 +300,13 @@ void processInput(GLFWwindow* window) {
 
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
 
+		g_playWalkingSound = true;
 		G_atat.changeAnimateValues();
+	}
+	else if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_RELEASE) {
+
+		G_Sound->setIsPaused();
+		g_playWalkingSound = false;
 	}
 	else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
 
