@@ -510,6 +510,8 @@ void ATAT::redrawBody()
 	//glActiveTexture(0);
 }
 
+
+
 void ATAT::drawLegSetup(GLfloat scale) {
 	float vertices[] = {
 		// positions                                                                    colors                  texture coord   normalvector
@@ -535,16 +537,16 @@ void ATAT::drawLegSetup(GLfloat scale) {
 	((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      0.2f, 0.2f,
 
 	//trapez rechts
-	((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),                1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
-	((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),																1.0f, 1.0f, 1.0f,      1.0f, 1.0f,           //16
-	((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),															1.0f, 1.0f, 1.0f,      1.0f, 1.0f,           //16
-	((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),               1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
+	((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),                1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+	((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),																1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //16
+	((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),															1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
+	((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),               1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
 
 	//trapez links
-	((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),				1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
-	((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),															1.0f, 1.0f, 1.0f,      1.0f, 1.0f,           //16
-	((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),														1.0f, 1.0f, 1.0f,      1.0f, 1.0f,           //16
-	((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
+	((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      .0f, 1.0f,
+	((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),														1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //16
+	((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),															1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
+	((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),				1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
 
 	//unterseite
 	((legLength - slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
@@ -593,9 +595,9 @@ void ATAT::drawLegSetup(GLfloat scale) {
 	//triangle left
 
 	//triangle front right
-	((-legLength + slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
-	((-legLength)*scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),									1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
 	((-legLength)*scale), ((kneeHeight)*scale), ((legWidth)*scale),																	1.0f, 1.0f, 1.0f,      0.0f, 1.0f,               //19
+		((-legLength) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),									1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
+			((-legLength + slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
 
 	//triangle front right
 	((-legLength + slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
@@ -608,9 +610,9 @@ void ATAT::drawLegSetup(GLfloat scale) {
 	((legLength)*scale), ((kneeHeight)*scale), ((legWidth)*scale),																	1.0f, 1.0f, 1.0f,      0.0f, 1.0f,               //19
 	
 	//triangle front right
-	((legLength - slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth)*scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
-	((legLength)*scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth)*scale),									1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
 	((legLength)*scale), ((kneeHeight)*scale), ((-legWidth)*scale),																	1.0f, 1.0f, 1.0f,      0.0f, 1.0f,               //19
+		((legLength)*scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),									1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
+			((legLength - slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
 
 
 	};
@@ -668,10 +670,10 @@ void ATAT::drawLegSetup(GLfloat scale) {
 	glBindVertexArray(legVAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, legVBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, legEBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
 
 	//position attribute
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
@@ -709,6 +711,202 @@ void ATAT::redrawLeg() {
 	//glActiveTexture(0);
 }
 
+
+void ATAT::drawFootSetup(GLfloat scale) {
+
+	
+	float vertices[] = {
+
+		//oberseite
+		((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),                1.0f, 1.0f, 1.0f,      1.0f, 1.0f,                              //0 vorne links
+		((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),				1.0f, 1.0f, 1.0f,      1.0f, 0.0f,                            //0 vorne links    //1 vorne rechts
+		((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),			1.0f, 1.0f, 1.0f,      0.0f, 0.0f,                         //0 vorne links    //2 hinten rechts
+		((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      0.0f, 1.0f,                            //0 vorne links   //3 hinten links
+
+		//schr<E4>gseite oben vorne
+		((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.1f,
+		((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),                                                           1.0f, 1.0f, 1.0f,      0.0f, 0.0f,        //17
+		((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),                                                              1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //16
+		((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+
+		//schr<E4>gseite oben hinten
+		((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),               1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
+		((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),                                                           1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
+		((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),														1.0f, 1.0f, 1.0f,      0.2f, 0.0f,        //17
+		((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      0.2f, 0.2f,
+
+		//trapez rechts
+		((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),                1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+		((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),																1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //16
+		((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),															1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
+		((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),               1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+
+		//trapez links
+		((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+		((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),														1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
+		((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),															1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //16
+		((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+
+		//fuﬂ, 2 Trapeze?
+
+		//vorderes oben
+		
+		((0) * scale), ((upperLegHeight)*scale), ((-legLength - footLengthMod) * scale),                1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+		((0) * scale), ((upperLegHeight)*scale), ((legLength + footLengthMod) * scale),				1.0f, 1.0f, 1.0f,      0.0f, 0.0f,
+		((legLength + footLengthMod) * scale), ((upperLegHeight)*scale), ((legLength)*scale),			1.0f, 1.0f, 1.0f,      1.0f, 0.0f,
+		((legLength + footLengthMod) * scale), ((upperLegHeight)*scale), ((-legLength) * scale),		1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+
+		//hinteres oben
+		((-legLength - footLengthMod) * scale), ((upperLegHeight)*scale), ((-legLength) * scale),		1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+		((-legLength - footLengthMod) * scale), ((upperLegHeight)*scale), ((legLength)*scale),			1.0f, 1.0f, 1.0f,      1.0f, 0.0f,
+		((0) * scale), ((upperLegHeight)*scale), ((legLength + footLengthMod) * scale),					1.0f, 1.0f, 1.0f,      0.0f, 0.0f,
+		((0) * scale), ((upperLegHeight)*scale), ((-legLength - footLengthMod) * scale),                1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+
+
+
+		//vorderes unten
+		((legLength + footLengthMod) * scale), ((upperLegHeight - foothight)*scale), ((-legLength) * scale),		1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+		((legLength + footLengthMod) * scale), ((upperLegHeight - foothight)*scale), ((legLength)*scale),			1.0f, 1.0f, 1.0f,      1.0f, 0.0f,
+		((0) * scale), ((upperLegHeight - foothight)*scale), ((legLength + footLengthMod) * scale),					1.0f, 1.0f, 1.0f,      0.0f, 0.0f,
+		((0) * scale), ((upperLegHeight - foothight)*scale), ((-legLength - footLengthMod) * scale),                1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+		
+		//hinteres unten
+		((0) * scale), ((upperLegHeight - foothight)*scale), ((-legLength - footLengthMod) * scale),                1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+		((0) * scale), ((upperLegHeight - foothight)*scale), ((legLength + footLengthMod) * scale),					1.0f, 1.0f, 1.0f,      0.0f, 0.0f,
+		((-legLength - footLengthMod ) * scale), ((upperLegHeight - foothight)*scale), ((legLength)*scale),			1.0f, 1.0f, 1.0f,      1.0f, 0.0f,
+		((-legLength - footLengthMod) * scale), ((upperLegHeight - foothight)*scale), ((-legLength) * scale),		1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+		
+		//vorderseite
+		((legLength + footLengthMod) * scale), ((upperLegHeight)*scale), ((-legLength) * scale),					1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+		((legLength + footLengthMod) * scale), ((upperLegHeight - foothight) * scale), ((-legLength) * scale),		1.0f, 1.0f, 1.0f,      1.0f, 0.0f,
+		((legLength + footLengthMod) * scale), ((upperLegHeight - foothight) * scale), ((legLength)*scale),			1.0f, 1.0f, 1.0f,      0.0f, 0.0f,
+		((legLength + footLengthMod) * scale), ((upperLegHeight)*scale), ((legLength)*scale),						1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+		
+		//hinterseite
+		
+		((-legLength - footLengthMod) * scale), ((upperLegHeight)*scale), ((legLength)*scale),						1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+		((-legLength - footLengthMod) * scale), ((upperLegHeight - foothight) * scale), ((legLength)*scale),		1.0f, 1.0f, 1.0f,      0.0f, 0.0f,
+		((-legLength - footLengthMod) * scale), ((upperLegHeight - foothight) * scale), ((-legLength) * scale),		1.0f, 1.0f, 1.0f,      1.0f, 0.0f,
+		((-legLength - footLengthMod) * scale), ((upperLegHeight)*scale), ((-legLength) * scale),					1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+
+		//schr‰g rechts vorne
+		((legLength + footLengthMod) * scale), ((upperLegHeight)*scale), ((legLength) * scale),					1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+		((legLength + footLengthMod) * scale), ((upperLegHeight - foothight)*scale), ((legLength)*scale),		1.0f, 1.0f, 1.0f,      1.0f, 0.0f,
+		((0) * scale), ((upperLegHeight - foothight)*scale), ((legLength + footLengthMod) * scale),				1.0f, 1.0f, 1.0f,      0.0f, 0.0f,
+		((0) * scale), ((upperLegHeight)*scale), ((legLength + footLengthMod) * scale),							1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+
+		//schr‰g rechts hinten		
+		((0) * scale), ((upperLegHeight)*scale), ((legLength + footLengthMod) * scale),							1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+		((0) * scale), ((upperLegHeight - foothight) * scale), ((legLength + footLengthMod) * scale),			1.0f, 1.0f, 1.0f,      0.0f, 0.0f,
+		((-legLength - footLengthMod) * scale), ((upperLegHeight - foothight) * scale), ((legLength)*scale),	1.0f, 1.0f, 1.0f,      1.0f, 0.0f,
+		((-legLength - footLengthMod) * scale), ((upperLegHeight)*scale), ((legLength)*scale),					1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+
+
+		//schr‰g links vorne
+		((legLength + footLengthMod) * scale), ((upperLegHeight)*scale), ((-legLength)*scale),					1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+		((0) * scale), ((upperLegHeight)*scale), ((-legLength - footLengthMod) * scale),							1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+		((0) * scale), ((upperLegHeight - foothight) * scale), ((-legLength - footLengthMod) * scale),				1.0f, 1.0f, 1.0f,      0.0f, 0.0f,
+		((legLength + footLengthMod) * scale), ((upperLegHeight - foothight) * scale), ((-legLength) * scale),		1.0f, 1.0f, 1.0f,      1.0f, 0.0f,
+
+		//schr‰g links hinten
+		((-legLength - footLengthMod) * scale), ((upperLegHeight)*scale), ((-legLength)*scale),					1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+		((-legLength - footLengthMod)* scale), ((upperLegHeight - foothight)* scale), ((-legLength)* scale),	1.0f, 1.0f, 1.0f,      1.0f, 0.0f,
+		((0)* scale), ((upperLegHeight - foothight)* scale), ((-legLength - footLengthMod)* scale),			1.0f, 1.0f, 1.0f,      0.0f, 0.0f,
+		((0)* scale), ((upperLegHeight)*scale), ((-legLength - footLengthMod)* scale),							1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
+
+
+
+	};
+
+	unsigned int indices[] = {  // note that we start from 0!
+
+		0, 1, 2,
+		2, 3, 0,
+
+		4, 5, 6,
+		6, 7, 4,
+
+		8, 9, 10,
+		10, 11, 8,
+
+		12, 13, 14,
+		14, 15, 12,
+
+		16, 17, 18,
+		18, 19, 16,
+
+		20, 21, 22,
+		22, 23, 20,
+
+		24, 25, 26,
+		26, 27, 24,
+
+		28, 29, 30,
+		30, 31, 28,
+
+		32, 33, 34,
+		34, 35, 32,
+
+		36, 37, 38,
+		38, 39, 36,
+
+		40, 41, 42,
+		42, 43, 40,
+
+		44, 45, 46,
+		46, 47, 44,
+
+		48, 49, 50,
+		50, 51, 48,
+
+		52, 53, 54,
+		54, 55, 52,
+
+		56, 57, 58,
+		58, 59, 56,
+
+	};
+
+	glGenVertexArrays(1, &footVAO);
+	glGenBuffers(1, &footVBO);
+	glGenBuffers(1, &footEBO);
+
+	//bind the VAO first, then bind and set vertex buffer(s), then config vertex attributes.
+	glBindVertexArray(footVAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, footVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, footEBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
+
+	//position attribute
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+
+	// color attribute
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+
+	// texture coord attribute
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glEnableVertexAttribArray(2);
+
+	// note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+
+void ATAT::redrawFoot() {
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, darkMetalTexture);
+
+	glBindVertexArray(footVAO);
+	glDrawElements(GL_TRIANGLES, 90, GL_UNSIGNED_INT, 0);
+}
+
+
+
 void ATAT::initialDraw(glm::mat4 mView, glm::vec3 lightPos, glm::vec3 camPos) {
 	glm::mat4 model = glm::mat4(1.0f);
 	atatShader.use();
@@ -729,7 +927,7 @@ void ATAT::initialDraw(glm::mat4 mView, glm::vec3 lightPos, glm::vec3 camPos) {
 
 	drawBodySetup(scale); // drawBodySetup
 	drawLegSetup(scale);
-
+	drawFootSetup(scale);
 	/* glm::mat4 trans = glm::mat4(1.0f);
 	 trans = glm::translate(trans, glm::vec3(bLength * 2, 0.0f, bLowerWidth * 2));
 	 atatShader.setMat4("model", trans);*/
@@ -781,6 +979,9 @@ void ATAT::animateBody(GLfloat velocity, GLfloat upperLegAngle) {
 		newZ = 0;
 	}
 
+	model = glm::translate(model, glm::vec3(0, -0.1f, 0));
+	atatShader.setMat4("model", model);
+
 	//zur?ck zum Ursprung
 	model = glm::translate(model, glm::vec3(currentX + newX, 0.0, currentZ + newZ));
 	atatShader.setMat4("model", model);
@@ -799,6 +1000,8 @@ void ATAT::animateBody(GLfloat velocity, GLfloat upperLegAngle) {
 	animateLeg(model, (currentX + newX), (currentZ + newZ), forwardMovementLUF, lowerLegMovLF, rotation, 2);
 	//hinten links
 	animateLeg(model, (currentX + newX), (currentZ + newZ), forwardMovementLUB, lowerLegMovLB, rotation, 3);
+
+	
 
 	currentAngle = rotation;
 	currentX = currentX + newX;
@@ -853,7 +1056,7 @@ void ATAT::animateLeg(glm::mat4 model, GLfloat x, GLfloat z, GLfloat upperLegAng
 
 	//hier die animation des unterschenkels
 
-	model = glm::translate(model, glm::vec3(((0)), (height / 2) + 0.1f, (0)));
+	model = glm::translate(model, glm::vec3(((0)), (height / 2) + 0.125f, (0)));
 	atatShader.setMat4("model", model);
 
 	model = glm::rotate(model, glm::radians((float)lowerAngle), glm::vec3(0.0, 0.0, 1.0));
@@ -863,6 +1066,58 @@ void ATAT::animateLeg(glm::mat4 model, GLfloat x, GLfloat z, GLfloat upperLegAng
 	atatShader.setMat4("model", model);
 
 	redrawLeg();
+
+	model = glm::translate(model, glm::vec3(((0)), (height / 2) + 0.125f, (0)));
+	atatShader.setMat4("model", model);
+
+	model = glm::rotate(model, glm::radians((float)-(lowerAngle+ upperLegAngle)), glm::vec3(0.0, 0.0, 1.0));
+	atatShader.setMat4("model", model);
+
+	model = glm::translate(model, glm::vec3(0.0, -height, 0.0));
+	atatShader.setMat4("model", model);
+
+	redrawFoot();
+
+	
+
+	//vorne rechts
+	//animateFoot(model, (legPosX), height, (legPosZ), forwardMovementLUB, lowerLegMovLB, (upperLegAngle + rotation), 0);
+
+}
+
+
+void ATAT::animateFoot(glm::mat4 model, GLfloat x, GLfloat y, GLfloat z, GLfloat upperLegAngle, GLfloat lowerAngle, GLfloat rotation, short type) {
+
+	GLfloat legPosX = x;
+	GLfloat legPosZ = z;
+	GLfloat height = y;
+
+
+	/*
+	model = glm::translate(model, glm::vec3(((legPosX * 2)), (-0.625f), (legPosZ)));
+	atatShader.setMat4("model", model);
+
+	
+
+	model = glm::translate(model, glm::vec3((-(legPosX * 2)), (0), (-legPosZ)));
+	atatShader.setMat4("model", model);
+	*/
+	/*
+	
+	*/
+
+	//model = glm::translate(model, glm::vec3((((0))), (-0.625f), (0)));
+	//atatShader.setMat4("model", model);
+
+	//model = glm::translate(model, glm::vec3(0.0, -height, 0.0));
+	//atatShader.setMat4("model", model);
+
+
+
+	//model = glm::rotate(model, glm::radians((float)45), glm::vec3(0.0, 0.0, 1.0));
+	//atatShader.setMat4("model", model);
+
+	redrawFoot();
 }
 
 void ATAT::changeAnimateValues() {

@@ -26,6 +26,7 @@ public:
 
 	void drawBodySetup(GLfloat scale);
 	void drawLegSetup(GLfloat scale);
+	void drawFootSetup(GLfloat scale);
 
 	//Head ->maybe if we want to move the head independantly
 	//void drawHeadSetup(GLfloat scale);
@@ -34,6 +35,7 @@ public:
 	void redrawATAT();
 	void redrawBody();
 	void redrawLeg();
+	void redrawFoot();
 
 	//==================== initial draw ====================
 
@@ -50,6 +52,11 @@ public:
 	GLuint legVAO;
 	unsigned int legEBO;
 
+	//feet
+	unsigned int footVBO;
+	GLuint footVAO;
+	unsigned int footEBO;
+
 	//texture
 	unsigned int darkMetalTexture;
 
@@ -62,6 +69,8 @@ public:
 	//2 vorne links
 	//3 hinten links
 	void animateLeg(glm::mat4 model, GLfloat x, GLfloat z, GLfloat upperLegAngle, GLfloat lowerAngle, GLfloat rotation, short type);
+
+	void animateFoot(glm::mat4 model, GLfloat x, GLfloat y, GLfloat z, GLfloat upperLegAngle, GLfloat lowerAngle, GLfloat rotation, short type);
 
 	//true for forward, false for bachward
 	void changeAnimateValues();
@@ -143,7 +152,9 @@ protected:
 	GLfloat slopedLegHighthMod = 0.05f;
 	GLfloat slopedLegLowerHighthMod = 0.02f;
 
-
+	//feet
+	GLfloat footLengthMod = 0.02f;
+	GLfloat foothight = 0.07f;
 
 	//========== neck ========== 0.8 max
 	GLfloat neckwidthMod = 0.06f;		//bLowerWidth - zSlopeMod - cWidthMod - neckwidthMod -> 0.12+0.03 - 0.02 - 0.02 - 0.05 = 0.06
