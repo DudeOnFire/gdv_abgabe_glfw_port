@@ -1,5 +1,13 @@
 #include "ATAT.h"
 
+ATAT::ATAT() {
+	//speed and frames
+	lastTime = glfwGetTime();
+	lastFrameTime = lastTime;
+}
+
+
+
 glm::vec3 ATAT::calcNorm(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3) {
 	//aus 3 Punkten 2 Vectoren bilden, von diesen beiden das Kreuzprodukt bilden
 	glm::vec3 u = p2 - p1;
@@ -788,6 +796,8 @@ void ATAT::animateLeg(glm::mat4 model, GLfloat x, GLfloat z, GLfloat upperLegAng
 
 void ATAT::changeAnimateValues() {
 
+	//funktioniert noch nicht 100%, da weiter gemacht wird.
+
 	//// Calculate delta time
 	//float currentFrame = glfwGetTime();
 	//g_dt = currentFrame - g_lf;
@@ -795,12 +805,18 @@ void ATAT::changeAnimateValues() {
 	
 	speed++;
 
-	
+	//deltatime bleibt einigermaßen konstant bei 0.007
+	double currentTime = glfwGetTime();
+	double deltaTime = currentTime - lastFrameTime;
+	lastFrameTime = currentTime;
+	frames++;
+
+	GLfloat div = 0.25;
 
 	//========== rechts vorne ==========
 	//von ganz vorne nach hinten
 	if (forwardMovementRLU > -24 && legStateRF == false) {
-		forwardMovementRLU -= 0.25;
+		forwardMovementRLU -= (0.25*div);
 	}
 	//Bein ganz hinten angekommen, soll jetzt wieder nach vorne gehen
 	else if (forwardMovementRLU == -24 && legStateRF == false) {
@@ -808,24 +824,24 @@ void ATAT::changeAnimateValues() {
 	}
 	//Bein l?uft nach vorne
 	else if (forwardMovementRLU < 24 && legStateRF == true) {
-		forwardMovementRLU += 1;
+		forwardMovementRLU += (1*div);
 
 		//unterschenkel
-		if (forwardMovementRLU < 0) {
-			lowerLegMovRF -= 2;
+		if (forwardMovementRLU <= 0) {
+			lowerLegMovRF -= (2*div);
 		}
-		else if (forwardMovementRLU >= 0 && forwardMovementRLU < 23) {
-			lowerLegMovRF += 2;
+		else if (forwardMovementRLU >= 0 && forwardMovementRLU <= 24) {
+			lowerLegMovRF += (2*div);
 		}
 	}
-	else if (forwardMovementRLU == 24 && legStateRF == true) {
+	else if (forwardMovementRLU >= 24 && legStateRF == true) {
 		legStateRF = false;
 	}
 
 	//========== links vorne ==========
 	//von ganz vorne nach hinten
 	if (forwardMovementLUF > -24 && legStateLF == false) {
-		forwardMovementLUF -= 0.25;
+		forwardMovementLUF -= (0.25*div);
 	}
 	//Bein ganz hinten angekommen, soll jetzt wieder nach vorne gehen
 	else if (forwardMovementLUF == -24 && legStateLF == false) {
@@ -833,24 +849,24 @@ void ATAT::changeAnimateValues() {
 	}
 	//Bein l?uft nach vorne
 	else if (forwardMovementLUF < 24 && legStateLF == true) {
-		forwardMovementLUF += 1;
+		forwardMovementLUF += (1*div);
 
 		//unterschenkel
-		if (forwardMovementLUF < 0) {
-			lowerLegMovLF -= 2;
+		if (forwardMovementLUF <= 0) {
+			lowerLegMovLF -= (2*div);
 		}
-		else if (forwardMovementLUF >= 0 && forwardMovementLUF < 23) {
-			lowerLegMovLF += 2;
+		else if (forwardMovementLUF >= 0 && forwardMovementLUF <= 24) {
+			lowerLegMovLF += (2*div);
 		}
 	}
-	else if (forwardMovementLUF == 24 && legStateLF == true) {
+	else if (forwardMovementLUF >= 24 && legStateLF == true) {
 		legStateLF = false;
 	}
 
 	//========== rechts hinten ==========
 	//von ganz vorne nach hinten
 	if (forwardMovementRLB > -24 && legStateRB == false) {
-		forwardMovementRLB -= 0.25;
+		forwardMovementRLB -= (0.25*div);
 	}
 	//Bein ganz hinten angekommen, soll jetzt wieder nach vorne gehen
 	else if (forwardMovementRLB == -24 && legStateRB == false) {
@@ -858,24 +874,24 @@ void ATAT::changeAnimateValues() {
 	}
 	//Bein l?uft nach vorne
 	else if (forwardMovementRLB < 24 && legStateRB == true) {
-		forwardMovementRLB += 1;
+		forwardMovementRLB += (1*div);
 
 		//unterschenkel
-		if (forwardMovementRLB < 0) {
-			lowerLegMovRB -= 2;
+		if (forwardMovementRLB <= 0) {
+			lowerLegMovRB -= (2*div);
 		}
-		else if (forwardMovementRLB >= 0 && forwardMovementRLB < 23) {
-			lowerLegMovRB += 2;
+		else if (forwardMovementRLB >= 0 && forwardMovementRLB <= 24) {
+			lowerLegMovRB += (2*div);
 		}
 	}
-	else if (forwardMovementRLB == 24 && legStateRB == true) {
+	else if (forwardMovementRLB >= 24 && legStateRB == true) {
 		legStateRB = false;
 	}
 
 	//========== links hinten ==========
 	//von ganz vorne nach hinten
 	if (forwardMovementLUB > -24 && legStateLB == false) {
-		forwardMovementLUB -= 0.25;
+		forwardMovementLUB -= (0.25*div);
 	}
 	//Bein ganz hinten angekommen, soll jetzt wieder nach vorne gehen
 	else if (forwardMovementLUB == -24 && legStateLB == false) {
@@ -883,17 +899,17 @@ void ATAT::changeAnimateValues() {
 	}
 	//Bein l?uft nach vorne
 	else if (forwardMovementLUB < 24 && legStateLB == true) {
-		forwardMovementLUB += 1;
+		forwardMovementLUB += (1*div);
 
 		//unterschenkel
-		if (forwardMovementLUB < 0) {
-			lowerLegMovLB -= 2;
+		if (forwardMovementLUB <= 0) {
+			lowerLegMovLB -= (2*div);
 		}
-		else if (forwardMovementLUB >= 0 && forwardMovementLUB < 23) {
-			lowerLegMovLB += 2;
+		else if (forwardMovementLUB >= 0 && forwardMovementLUB <= 24) {
+			lowerLegMovLB += (2*div);
 		}
 	}
-	else if (forwardMovementLUB == 24 && legStateLB == true) {
+	else if (forwardMovementLUB >= 24 && legStateLB == true) {
 		legStateLB = false;
 	}
 }

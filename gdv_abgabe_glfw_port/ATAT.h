@@ -1,7 +1,7 @@
 #pragma once
 
 #include <glad/glad.h>
-
+#include <GLFW/glfw3.h>
 #include "stb_image.h"
 #include "Shader.h"
 
@@ -15,6 +15,9 @@
 class ATAT
 {
 public:
+
+
+	ATAT();
 
 	//Shader
 	Shader atatShader;
@@ -80,7 +83,12 @@ public:
 	bool legStateLF = false;
 	bool legStateLB = false;
 
-	//speed of the atat and animation
+	
+	
+
+	double lastFrameTime;
+	double lastTime;
+	int frames = 0;
 	GLfloat speed = 0;
 
 	//- right, + left
@@ -130,6 +138,10 @@ protected:
 	GLfloat lowerHeight = 0.2f;
 	GLfloat legWidth = bLowerWidth / 4;		//kurze Seite
 	GLfloat legLength = bLength / 3;	//lange seite
+
+	GLfloat slopedLegWidthMod = 0.02f;
+	GLfloat slopedLegHighthMod = 0.02f;
+
 
 	//========== neck ========== 0.8 max
 	GLfloat neckwidthMod = 0.06f;		//bLowerWidth - zSlopeMod - cWidthMod - neckwidthMod -> 0.12+0.03 - 0.02 - 0.02 - 0.05 = 0.06
