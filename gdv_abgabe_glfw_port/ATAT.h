@@ -139,8 +139,10 @@ protected:
 	GLfloat legWidth = bLowerWidth / 4;		//kurze Seite
 	GLfloat legLength = bLength / 3;	//lange seite
 
-	GLfloat slopedLegWidthMod = 0.02f;
-	GLfloat slopedLegHighthMod = 0.02f;
+	GLfloat slopedLegLengthMod = 0.02f;
+	GLfloat slopedLegHighthMod = 0.05f;
+	GLfloat slopedLegLowerHighthMod = 0.02f;
+
 
 
 	//========== neck ========== 0.8 max

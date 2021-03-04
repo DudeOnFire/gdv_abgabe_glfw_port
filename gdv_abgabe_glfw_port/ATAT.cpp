@@ -531,42 +531,91 @@ void ATAT::drawLegSetup(GLfloat scale) {
 
 	//========== mittelteil ==========
 
-	//oberseite
-		((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,                              //0 vorne links
-		((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 0.0f,                            //0 vorne links    //1 vorne rechts
-		((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,                         //0 vorne links    //2 hinten rechts
-		((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      0.0f, 1.0f,                            //0 vorne links   //3 hinten links
+	 //oberseite
+				((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),                               1.0f, 1.0f, 1.0f,      1.0f, 1.0f,                              //0 vorne links
+				((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      1.0f, 0.0f,                            //0 vorne links    //1 vorne rechts
+				((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),         1.0f, 1.0f, 1.0f,      0.0f, 0.0f,                         //0 vorne links    //2 hinten rechts
+				((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),            1.0f, 1.0f, 1.0f,      0.0f, 1.0f,                            //0 vorne links   //3 hinten links
 
-	//unterseite
-		((legLength)*scale), ((kneeHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
-		((legLength)*scale), ((kneeHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 0.0f,          //4//5
-		((-legLength) * scale), ((kneeHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,      //4 //6
-		((-legLength) * scale), ((kneeHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      0.0f, 1.0f,          //4//7
+				//schr<E4>gseite oben vorne
+				((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.2f, 0.2f,
+				((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),                                                                                                                   1.0f, 1.0f, 1.0f,      0.2f, 0.0f,        //17
+				((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),                                                                                                                              1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
+				((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),                              1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
 
-	//bei den seiten 0 und 1 oben, 2 und 3 unten
-		//linke Seite
-		((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,              //8
-		((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //9
-		((-legLength) * scale), ((kneeHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,               //10
-		((legLength)*scale), ((kneeHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 1.0f,                  //11
+				//schr<E4>gseite oben hinten
+				((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),                               1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
+				((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),                                                                                                                             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
+				((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),                                                                                                                  1.0f, 1.0f, 1.0f,      0.2f, 0.0f,        //17
+				((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      0.2f, 0.2f,
 
-		//rechte Seite
-		((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,        //12
-		((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //13
-		((legLength)*scale), ((kneeHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,               //14
-		((-legLength) * scale), ((kneeHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      0.0f, 1.0f,            //15
+				//trapez rechts
+				((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),                                1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
+				((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,           //16
+				((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,           //16
+				((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),                               1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
 
-		//vordere Seite
-		((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,           //16
-		((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 0.0f,        //17
-		((legLength)*scale), ((kneeHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,            //18
-		((legLength)*scale), ((kneeHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      0.0f, 1.0f,               //19
+				//trapez links
+				((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),                               1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
+				((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,           //16
+				((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,           //16
+				((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),                              1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
 
-		//hintere Seite
-		((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,     //20
-		((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 0.0f,        //21
-		((-legLength) * scale), ((kneeHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,            //22
-		((-legLength) * scale), ((kneeHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 1.0f,         //23
+
+				//unterseite
+						   ((legLength - slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
+						   ((legLength - slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 0.0f,          //4//5
+						   ((-legLength + slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,      //4 //6
+						   ((-legLength + slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      0.0f, 1.0f,          //4//7
+
+						   //schr<E4>gseite unten vorne
+						   ((legLength - slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.2f, 0.2f,
+						   ((legLength)*scale), ((kneeHeight)*scale), ((-legWidth) * scale),                                                                                                                       1.0f, 1.0f, 1.0f,      0.2f, 0.0f,        //17
+						   ((legLength)*scale), ((kneeHeight)*scale), ((legWidth)*scale),                                                                                                                          1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
+						   ((legLength - slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),                               1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
+
+						   //schr<E4>gseite unten hinten
+						   ((-legLength + slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),                              1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
+						   ((-legLength) * scale), ((kneeHeight)*scale), ((legWidth)*scale),                                                                                                                               1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
+						   ((-legLength) * scale), ((kneeHeight)*scale), ((-legWidth) * scale),                                                                                                                    1.0f, 1.0f, 1.0f,      0.2f, 0.0f,        //17
+						   ((-legLength + slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      0.2f, 0.2f,
+
+
+						   //bei den seiten 0 und 1 oben, 2 und 3 unten
+								   //linke Seite
+								   ((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,              //8
+								   ((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //9
+								   ((-legLength) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,               //10
+								   ((legLength)*scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 1.0f,                  //11
+
+								   //rechte Seite
+								   ((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,        //12
+								   ((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //13
+								   ((legLength)*scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,               //14
+								   ((-legLength) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      0.0f, 1.0f,            //15
+
+								   //vordere Seite
+								   ((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,           //16
+								   ((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 0.0f,        //17
+								   ((legLength)*scale), ((kneeHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,            //18
+								   ((legLength)*scale), ((kneeHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      0.0f, 1.0f,               //19
+
+								   //hintere Seite
+								   ((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,     //20
+								   ((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      1.0f, 0.0f,        //21
+								   ((-legLength) * scale), ((kneeHeight)*scale), ((legWidth)*scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.0f,            //22
+								   ((-legLength) * scale), ((kneeHeight)*scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 1.0f,         //23
+
+
+
+
+
+
+								   //has to be the last two ones
+								   //triangle left
+
+								   //triangle right
+
 	};
 	unsigned int indices[] = {  // note that we start from 0!
 		0, 1, 2,
@@ -586,6 +635,25 @@ void ATAT::drawLegSetup(GLfloat scale) {
 
 		20, 21, 22,
 		22, 23, 20,
+
+		 24, 25, 26,
+				26, 27, 24,
+
+				28, 29, 30,
+				30, 31, 28,
+
+				32, 33, 34,
+				34, 35, 32,
+
+				36, 37, 38,
+				38, 39, 36,
+
+				40, 41, 42,
+				42, 43, 40,
+
+				44, 45, 46,
+				46, 47, 44,
+
 	};
 
 	glGenVertexArrays(1, &legVAO);
@@ -632,7 +700,7 @@ void ATAT::redrawLeg() {
 	glBindTexture(GL_TEXTURE_2D, darkMetalTexture);
 
 	glBindVertexArray(legVAO);
-	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 72, GL_UNSIGNED_INT, 0);
 	//glBindVertexArray(0);
 	//glActiveTexture(0);
 } 

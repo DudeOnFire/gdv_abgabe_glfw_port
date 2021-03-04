@@ -320,7 +320,6 @@ void processInput(GLFWwindow* window) {
 	else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
 
 		G_atat.sidewardRotation--;
-		std::cout << "Right key pressed. Rotation: " << G_atat.sidewardRotation << std::endl;
 		G_atat.changeRotation();
 	}
 
