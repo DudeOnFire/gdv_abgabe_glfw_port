@@ -311,7 +311,7 @@ void processInput(GLFWwindow* window) {
 		G_Sound->setIsPaused();
 		g_playWalkingSound = false;
 	}
-	else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
 		std::cout << "down arrow key pressed " << std::endl;
 
 
