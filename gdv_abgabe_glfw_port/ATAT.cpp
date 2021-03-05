@@ -173,10 +173,10 @@ void ATAT::drawBodySetup(GLfloat scale) {
 	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,     1.0f, 1.0f, 1.0f,       0.0f, 1.0f, //43
 
 	//rechte Seite
-	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,                                               1.0f, 1.0f, 1.0f,       1.0f, 1.0f, // 44 bottom left
-	(-bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,                                                              1.0f, 1.0f, 1.0f,       1.0f, 0.0f, // 45 bottom left
-	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,                                    1.0f, 1.0f, 1.0f,       0.0f, 0.0f, //46
-	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,     1.0f, 1.0f, 1.0f,       0.0f, 1.0f, //47
+	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,                                               1.0f, 1.0f, 1.0f,       0.0f, 1.0f, // 44 bottom left
+	(-bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,                                                              1.0f, 1.0f, 1.0f,       0.0f, 0.0f, // 45 bottom left
+	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,                                    1.0f, 1.0f, 1.0f,       1.0f, 0.0f, //46
+	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,     1.0f, 1.0f, 1.0f,       1.0f, 1.0f, //47
 
 	//hintere Seite
 	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,     1.0f, 1.0f, 1.0f,       1.0f, 1.0f, //48
@@ -307,17 +307,78 @@ void ATAT::drawBodySetup(GLfloat scale) {
 	(headBackSidePos + headLowerLength - upperSLopeLengthMod) * scale, (headHight - upperSlopeMod) * scale, (headLowerWidth - headFLWidth) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //124
 
 	//left side
-	(headBackSidePos)*scale, (headHight)*scale, (-headUpperWidth) * scale,																					1.0f, 1.0f, 1.0f,	1.0f, 0.0f, //123
-	(headBackSidePos)*scale, (bLowerHight + neckLowerHightMod - headLowerBackHight) * scale, (-headLowerWidth) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //119
-	(headBackSidePos + headLowerLength) * scale, (bLowerHight + neckLowerHightMod - headLowerBackHight) * scale, (-headLowerWidth + headFLWidth) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //125
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod) * scale, (headHight - upperSlopeMod) * scale, (-headLowerWidth + headFLWidth) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //127
+	(headBackSidePos)*scale, (headHight)*scale, (-headUpperWidth) * scale,																					1.0f, 1.0f, 1.0f,	1.0f, 1.0f, //123
+	(headBackSidePos)*scale, (bLowerHight + neckLowerHightMod - headLowerBackHight) * scale, (-headLowerWidth) * scale,										1.0f, 1.0f, 1.0f,	1.0f, 0.0f, //119
+	(headBackSidePos + headLowerLength) * scale, (bLowerHight + neckLowerHightMod - headLowerBackHight) * scale, (-headLowerWidth + headFLWidth) * scale,	1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //125
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod) * scale, (headHight - upperSlopeMod) * scale, (-headLowerWidth + headFLWidth) * scale,		1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //127
 
 	//right side
 	(headBackSidePos + headLowerLength - upperSLopeLengthMod) * scale, (headHight - upperSlopeMod) * scale, (headLowerWidth - headFLWidth) * scale,			1.0f, 1.0f, 1.0f,	1.0f, 1.0f, //127
-	(headBackSidePos + headLowerLength) * scale, (bLowerHight + neckLowerHightMod - headLowerBackHight) * scale, (headLowerWidth - headFLWidth) * scale,		1.0f, 1.0f, 1.0f,	1.0f, 0.0f, //125
+	(headBackSidePos + headLowerLength) * scale, (bLowerHight + neckLowerHightMod - headLowerBackHight) * scale, (headLowerWidth - headFLWidth) * scale,	1.0f, 1.0f, 1.0f,	1.0f, 0.0f, //125
 	(headBackSidePos)*scale, (bLowerHight + neckLowerHightMod - headLowerBackHight) * scale, (headLowerWidth)*scale,										1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //119
-	(headBackSidePos)*scale, (headHight)*scale, (headUpperWidth)*scale,																					1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //123
-	};
+	(headBackSidePos)*scale, (headHight)*scale, (headUpperWidth)*scale,																						1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //123
+	
+
+	//===== cockpit =====
+	
+	//oben
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //124
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (headLowerWidth - headFLWidth - 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //125
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //127
+
+	//unten
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //124
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (headLowerWidth - headFLWidth - 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //125
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //127
+
+	//trapez rechts
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (headLowerWidth - headFLWidth - 0.04)* scale,			1.0f, 1.0f, 1.0f,	1.0f, 1.0f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (headLowerWidth - headFLWidth - 0.04)* scale,				1.0f, 1.0f, 1.0f,	1.0f, 0.0f, //126
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (headLowerWidth - headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //124
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (headLowerWidth - headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //124
+
+	//trapez links
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //124
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //124
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //126
+
+	//front
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale,			1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //125
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (headLowerWidth - headFLWidth - 0.04)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (headLowerWidth - headFLWidth - 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //125
+
+
+	//===== weaponrack =====
+
+	//underside
+	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale,											1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //121
+	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //121
+
+	//front
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale,			1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //121
+
+	//right sides
+	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale,											1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.5f, 0.5f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //121
+
+	//left
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.5f, 0.5f, //121
+	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //121
+
+
+
+};
 	unsigned int indices[] = {  // note that we start from 0!
 		0, 1, 2,
 		2, 3, 0,
@@ -420,6 +481,32 @@ void ATAT::drawBodySetup(GLfloat scale) {
 
 		132, 133, 134,
 		134, 135, 132,
+
+		136, 137, 138,
+		138, 139, 136,
+
+		140, 141, 142,
+		142, 143, 140,
+
+		144, 145, 146,
+		146, 147, 144,
+
+		148, 149, 150,
+		150, 151, 148,
+
+		152, 153, 154,
+		154, 155, 152,
+
+		156, 157, 158,
+		158, 159, 156,
+
+		160, 161, 162,
+		162, 163, 160,
+
+		164, 165, 166,
+
+		167, 168, 169,
+
 	};
 
 	glGenVertexArrays(1, &testVAO);
@@ -505,7 +592,7 @@ void ATAT::redrawBody()
 	glBindTexture(GL_TEXTURE_2D, darkMetalTexture);
 
 	glBindVertexArray(testVAO);
-	glDrawElements(GL_TRIANGLES, 204, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 252, GL_UNSIGNED_INT, 0);
 	//glBindVertexArray(0);
 	//glActiveTexture(0);
 }
@@ -543,7 +630,7 @@ void ATAT::drawLegSetup(GLfloat scale) {
 	((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),               1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
 
 	//trapez links
-	((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      .0f, 1.0f,
+	((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
 	((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),														1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //16
 	((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),															1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
 	((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),				1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
@@ -594,25 +681,25 @@ void ATAT::drawLegSetup(GLfloat scale) {
 	//has to be the last two ones
 	//triangle left
 
-	//triangle front right
-	((-legLength)*scale), ((kneeHeight)*scale), ((legWidth)*scale),																	1.0f, 1.0f, 1.0f,      0.0f, 1.0f,               //19
-		((-legLength) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),									1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
-			((-legLength + slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
+	//triangle back right
+	((-legLength)*scale), ((kneeHeight)*scale), ((legWidth)*scale),																	1.0f, 1.0f, 1.0f,      1.0f, 0.5f,               //19
+	((-legLength) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),									1.0f, 1.0f, 1.0f,      1.0f, 0.0f,             //4
+	((-legLength + slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      0.0f, 0.0f,             //4
+
+	//triangle back left
+	((-legLength + slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),			1.0f, 1.0f, 1.0f,      1.0f, 0.5f,             //4
+	((-legLength)*scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),									1.0f, 1.0f, 1.0f,      1.0f, 0.0f,             //4
+	((-legLength)*scale), ((kneeHeight)*scale), ((-legWidth) * scale),																1.0f, 1.0f, 1.0f,      0.0f, 0.0f,               //19
 
 	//triangle front right
-	((-legLength + slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
-	((-legLength)*scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),									1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
-	((-legLength)*scale), ((kneeHeight)*scale), ((-legWidth) * scale),																	1.0f, 1.0f, 1.0f,      0.0f, 1.0f,               //19
-
-	//triangle front right
-	((legLength - slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
-	((legLength) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),									1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
-	((legLength)*scale), ((kneeHeight)*scale), ((legWidth)*scale),																	1.0f, 1.0f, 1.0f,      0.0f, 1.0f,               //19
+	((legLength - slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      1.0f, 0.5f,             //4
+	((legLength) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((legWidth)*scale),									1.0f, 1.0f, 1.0f,      1.0f, 0.0f,             //4
+	((legLength)*scale), ((kneeHeight)*scale), ((legWidth)*scale),																	1.0f, 1.0f, 1.0f,      0.0f, 0.0f,               //19
 	
-	//triangle front right
-	((legLength)*scale), ((kneeHeight)*scale), ((-legWidth)*scale),																	1.0f, 1.0f, 1.0f,      0.0f, 1.0f,               //19
-		((legLength)*scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),									1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
-			((legLength - slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,             //4
+	//triangle front left
+	((legLength)*scale), ((kneeHeight)*scale), ((-legWidth)*scale),																	1.0f, 1.0f, 1.0f,      1.0f, 0.5f,               //19
+	((legLength)*scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),									1.0f, 1.0f, 1.0f,      1.0f, 0.0f,             //4
+	((legLength - slopedLegLengthMod) * scale), ((kneeHeight + slopedLegLowerHighthMod) * scale), ((-legWidth) * scale),			1.0f, 1.0f, 1.0f,      0.0f, 0.0f,             //4
 
 
 	};
