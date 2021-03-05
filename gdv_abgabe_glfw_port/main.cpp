@@ -82,6 +82,7 @@ int main() {
 	}
 
 	G_SoundEngine = irrklang::createIrrKlangDevice();
+	G_SoundEngine->setSoundVolume(0.4f);
 	//G_SoundSrc = G_SoundEngine->addSoundSourceFromFile("resources/AT_AT_Sound_Effect.mp3");
 	G_SoundSrc = G_SoundEngine->addSoundSourceFromFile("resources/ImperialMarch.mp3");
 	G_Sound = G_SoundEngine->play2D(G_SoundSrc, true, true, true);
