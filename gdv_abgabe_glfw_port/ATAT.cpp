@@ -375,9 +375,6 @@ void ATAT::drawBodySetup(GLfloat scale) {
 	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //121
 	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.5f, 0.5f, //121
 	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //121
-
-
-
 };
 	unsigned int indices[] = {  // note that we start from 0!
 		0, 1, 2,
