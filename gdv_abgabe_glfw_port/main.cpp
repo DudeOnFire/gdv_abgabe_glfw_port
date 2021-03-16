@@ -12,6 +12,7 @@
 #include "Skybox.h"
 #include "Camera.h"
 #include "Landscape.h"
+#include "Rebelbase.h"
 
 //------------ Global Variables -------------
 // Notation: 
@@ -39,6 +40,8 @@ ATAT G_atat;
 Skybox G_skybox;
 Camera G_camera = Camera(glm::vec3(2.0f, 4.0f, 2.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 Landscape G_scape;
+Rebelbase G_base;
+
 irrklang::ISoundEngine* G_SoundEngine;
 irrklang::ISoundSource* G_SoundSrc;
 irrklang::ISound* G_Sound;
@@ -116,6 +119,10 @@ int main() {
 	Shader landscapeShader = Shader("shaders/landscape_vs.vs", "shaders/landscape_fs.fs");
 	G_scape.landscapeShader = landscapeShader;
 
+	//	RebelBaseShader
+	Shader baseShader = Shader("shaders/base_vs.vs", "shaders/base_fs.fs", "shaders/base_gs.gs");
+	G_base.baseShader = baseShader;
+
 	// Call init functions of objects
 	G_atat.atatShader.use();
 	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)g_windowSizeX / (float)g_windowSizeY, 0.1f, 100.0f);
@@ -132,6 +139,19 @@ int main() {
 	G_scape.landscapeShader.setInt("snowTexture", 1);
 	G_scape.landscapeShader.setMat4("projection", projection);
 	G_scape.loadLandscape();
+
+	//	Rebelbase
+	glm::mat4 model = glm::mat4(1.0f);
+	glm::mat4 view = G_camera.getViewMatrix();
+
+	G_base.baseShader = baseShader;
+	G_base.baseShader.use();
+	G_base.baseShader.setMat4("view", view);
+	G_base.baseShader.setMat4("model", model);
+	G_base.baseShader.setMat4("projection", projection);
+	G_base.loadTextures();
+	G_base.baseShader.setInt("greymetallightTexture", 0);
+	G_base.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
 
 	// Our new RenderScene function, the main loop
@@ -187,7 +207,6 @@ int main() {
 		//G_atat.initialDraw(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
 
 		
-
 		// Landscape
 		G_scape.landscapeShader = landscapeShader;
 		G_scape.landscapeShader.use();
@@ -200,6 +219,16 @@ int main() {
 		G_scape.landscapeShader.setFloat("light.cutOff", glm::cos(glm::radians(g_cutOffAngle)));
 		G_scape.landscapeShader.setFloat("light.outerCutOff", glm::cos(glm::radians(g_outerCutOffAngle)));
 		G_scape.drawLandscape(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+
+		//	Rebelbase
+		G_base.baseShader = baseShader;
+		G_base.baseShader.use();
+		G_base.baseShader.setMat4("projection", projection);
+		G_base.baseShader.setMat4("view", view);
+		G_base.baseShader.setMat4("model", model);
+		G_base.drawBase();
+
+
 
 		if (g_toggleNormalVectors) {
 
@@ -219,6 +248,16 @@ int main() {
 			G_scape.landscapeShader.setMat4("view", view);
 			G_scape.landscapeShader.setMat4("model", model);
 			G_scape.drawLandscape(G_camera.getViewMatrix(), g_lightPos, G_camera.mView);
+
+
+			//	Rebelbase
+			G_base.baseShader = normalDrawShader;
+			G_base.baseShader.use();
+			G_base.baseShader.setMat4("projection", projection);
+			G_base.baseShader.setMat4("view", view);
+			G_base.baseShader.setMat4("model", model);
+			G_base.redrawBase();
+
 		}
 
 		
@@ -320,13 +359,13 @@ void processInput(GLFWwindow* window) {
 	else if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
 
 		std::cout << "left arrow key pressed " << std::endl;
-		G_atat.sidewardRotation++;
+		G_atat.sidewardRotation += 0.25f;
 		G_atat.changeRotation();
 	}
 	else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
 
 		std::cout << "right arrow key pressed " << std::endl;
-		G_atat.sidewardRotation--;
+		G_atat.sidewardRotation -= 0.25f;
 		G_atat.changeRotation();
 	}
 
@@ -362,5 +401,6 @@ void processInput(GLFWwindow* window) {
 		G_camera.outputmPosition();
 		G_camera.outputmView();
 	}
+	
 }
 

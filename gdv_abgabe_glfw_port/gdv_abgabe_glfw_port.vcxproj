@@ -147,6 +147,7 @@
     <ClCompile Include="Landscape.cpp" />
     <ClCompile Include="Lighting.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rebelbase.cpp" />
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="ATAT.cpp" />
     <ClCompile Include="stb_image.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Landscape.h" />
     <ClInclude Include="Lighting.h" />
+    <ClInclude Include="Rebelbase.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="stb_image.h" />
@@ -174,6 +176,9 @@
     <None Include="shaders\atat_fs.fs" />
     <None Include="shaders\atat_gs.gs" />
     <None Include="shaders\atat_vs.vs" />
+    <None Include="shaders\base_fs.fs" />
+    <None Include="shaders\base_gs.gs" />
+    <None Include="shaders\base_vs.vs" />
     <None Include="shaders\landscape_fs.fs" />
     <None Include="shaders\landscape_vs.vs" />
     <None Include="shaders\lighting.fs" />

@@ -126,121 +126,121 @@ void ATAT::drawBodySetup(GLfloat scale) {
 	bLength * scale,  bUpperHight * scale, bUpperWidth * scale,				1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // top left         13
 	bLength * scale, bUpperHight * scale, (-bUpperWidth) * scale,				1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     //                  12
 
-	//========== schr?gen hinten ==========
+	//========== schrägen hinten ==========
 
 	//linke schr?gseite
-	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,    1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 19 top right
-	(-bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,                  1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 18 bottom
-	(-bLength) * scale, bLowerHight * scale, (-bLowerWidth) * scale,                                           1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 17 bottom left
-	(-bLength) * scale,  bUpperHight * scale, (-bUpperWidth) * scale,                                           1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 16 top right
+	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,    1.0f, 1.0f, 1.0f,       0.3f, 0.8f,     // 19 top left
+	(-bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,					1.0f, 1.0f, 1.0f,       0.3f, 0.0f,     // 18 bottom left
+	(-bLength) * scale, bLowerHight * scale, (-bLowerWidth) * scale,											1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 17 bottom right
+	(-bLength) * scale,  bUpperHight * scale, (-bUpperWidth) * scale,                                           1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 16 top right
 
 	//untere Schr?gseite
-	(-bLength) * scale,  bLowerHight * scale, (-bLowerWidth) * scale,                                          1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 20 top right
-	(-bLength) * scale, bLowerHight * scale, (bLowerWidth)*scale,                                            1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 21 bottom left
-	(-bLength - zLengthMod) * scale,  bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,                  1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 22 top right
-	(-bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,                  1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 23 bottom left
+	(-bLength) * scale,  bLowerHight * scale, (-bLowerWidth) * scale,											1.0f, 1.0f, 1.0f,       0.3f, 0.8f,     // 20 top right
+	(-bLength) * scale, bLowerHight * scale, (bLowerWidth)*scale,												1.0f, 1.0f, 1.0f,       0.3f, 0.0f,     // 21 bottom left
+	(-bLength - zLengthMod) * scale,  bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,					1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 22 top right
+	(-bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,					1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 23 bottom left
 
 	//rechte schr?gseite
-	(-bLength) * scale,  bUpperHight * scale, (bUpperWidth)*scale,                                           1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 24 top right
-	(-bLength) * scale, bLowerHight * scale, (bLowerWidth)*scale,                                            1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 25 bottom left
-	(-bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,                   1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 26 bottom
-	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,    1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 27 top right
+	(-bLength) * scale,  bUpperHight * scale, (bUpperWidth)*scale,												1.0f, 1.0f, 1.0f,       0.3f, 0.8f,     // 24 top right
+	(-bLength) * scale, bLowerHight * scale, (bLowerWidth)*scale,												1.0f, 1.0f, 1.0f,       0.3f, 0.0f,     // 25 bottom left
+	(-bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,					1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 26 bottom
+	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,		1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 27 top right
 
 	//obere Schr?gseite
-	(-bLength) * scale,  bUpperHight * scale, (-bUpperWidth) * scale,                                         1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 28 top right
-	(-bLength) * scale, bUpperHight * scale, (bUpperWidth)*scale,                                            1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 29 bottom left
-	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,    1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 30 top right
-	(-bLength - zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,    1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 31 bottom left
+	(-bLength) * scale,  bUpperHight * scale, (-bUpperWidth) * scale,											1.0f, 1.0f, 1.0f,       0.3f, 0.8f,     // 28 top right
+	(-bLength) * scale, bUpperHight * scale, (bUpperWidth)*scale,												1.0f, 1.0f, 1.0f,       0.3f, 0.0f,     // 29 bottom left
+	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,		1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 30 top right
+	(-bLength - zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,		1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 31 bottom left
 
 	//========== hintere Seiten ==========
 
 	//unterseite
-	(-bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,                              1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 32 bottom left
-	(-bLength - zLengthMod) * scale,  bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,                              1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 33 top right
-	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,        1.0f, 1.0f, 1.0f,       0.0f, 0.0f, //34
-	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,    1.0f, 1.0f, 1.0f,       0.0f, 1.0f, //35
+	(-bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,								1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 32 bottom left
+	(-bLength - zLengthMod) * scale,  bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,								1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 33 top right
+	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,      1.0f, 1.0f, 1.0f,       0.0f, 0.0f, //34
+	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,		1.0f, 1.0f, 1.0f,       0.0f, 1.0f, //35
 
 	//linke seite
-	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,     1.0f, 1.0f, 1.0f,       0.0f, 1.0f, //39
-	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,                                    1.0f, 1.0f, 1.0f,       0.0f, 0.0f, //38
-	(-bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,                                                              1.0f, 1.0f, 1.0f,       1.0f, 0.0f, // 37 bottom left
-	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,                                               1.0f, 1.0f, 1.0f,       1.0f, 1.0f, // 36 bottom left
+	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,		1.0f, 1.0f, 1.0f,       0.8f, 0.9f, //39
+	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,										1.0f, 1.0f, 1.0f,       1.0f, 0.0f, //38
+	(-bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,																1.0f, 1.0f, 1.0f,       0.0f, 0.0f, // 37 bottom left
+	(-bLength - zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,													1.0f, 1.0f, 1.0f,       0.0f, 1.0f, // 36 bottom left
 
 	//oberseite
-	(-bLength - zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,                                                1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 40 bottom left
-	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,                                                1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 41 top right
-	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,      1.0f, 1.0f, 1.0f,       0.0f, 0.0f, //42
-	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,     1.0f, 1.0f, 1.0f,       0.0f, 1.0f, //43
+	(-bLength - zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,													1.0f, 1.0f, 1.0f,       1.0f, 1.0f,     // 40 bottom left
+	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,													1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 41 top right
+	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,		1.0f, 1.0f, 1.0f,       0.0f, 0.0f, //42
+	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,		1.0f, 1.0f, 1.0f,       0.0f, 1.0f, //43
 
 	//rechte Seite
-	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,                                               1.0f, 1.0f, 1.0f,       0.0f, 1.0f, // 44 bottom left
-	(-bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,                                                              1.0f, 1.0f, 1.0f,       0.0f, 0.0f, // 45 bottom left
-	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,                                    1.0f, 1.0f, 1.0f,       1.0f, 0.0f, //46
-	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,     1.0f, 1.0f, 1.0f,       1.0f, 1.0f, //47
+	(-bLength - zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,													1.0f, 1.0f, 1.0f,       0.8f, 0.9f, // 44 bottom left
+	(-bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,																1.0f, 1.0f, 1.0f,       1.0f, 0.0f, // 45 bottom left
+	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,										1.0f, 1.0f, 1.0f,       0.0f, 0.0f, //46
+	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,		1.0f, 1.0f, 1.0f,       0.0f, 1.0f, //47
 
 	//hintere Seite
-	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,     1.0f, 1.0f, 1.0f,       1.0f, 1.0f, //48
-	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,      1.0f, 1.0f, 1.0f,       1.0f, 0.0f, //49
-	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,                                     1.0f, 1.0f, 1.0f,       0.0f, 0.0f, //50
-	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,                                    1.0f, 1.0f, 1.0f,       0.0f, 1.0f, //51
+	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,		1.0f, 1.0f, 1.0f,       1.0f, 1.0f, //48
+	(-cUpperLenth - bLength - zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,		1.0f, 1.0f, 1.0f,       1.0f, 0.0f, //49
+	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,										1.0f, 1.0f, 1.0f,       0.0f, 0.0f, //50
+	(-cLowerLenth - bLength - zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,										1.0f, 1.0f, 1.0f,       0.0f, 1.0f, //51
 
 	//========== schrägen vorne ==========
 
 	 //linke schr?gseite
-	(bLength)*scale,  bUpperHight * scale, (-bUpperWidth) * scale,                                           1.0f, 1.0f, 1.0f,       0.2f, 1.0f,     // 52 top right
-	(bLength)*scale, bLowerHight * scale, (-bLowerWidth) * scale,                                            1.0f, 1.0f, 1.0f,       0.2f, 0.0f,     // 53 bottom left
-	(bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,                   1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 54 bottom
-	(bLength + zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,    1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 55 top right
+	(bLength)*scale,  bUpperHight * scale, (-bUpperWidth) * scale,												1.0f, 1.0f, 1.0f,       0.3f, 0.8f,     // 52 top right
+	(bLength)*scale, bLowerHight * scale, (-bLowerWidth) * scale,												1.0f, 1.0f, 1.0f,       0.3f, 0.0f,     // 53 bottom left
+	(bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,					1.0f, 1.0f, 1.0f,       0.0f, 0.0f,     // 54 bottom
+	(bLength + zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,		1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 55 top right
 
 	//untere Schr?gseite
-	(bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,                   1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 59 bottom left
-	(bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,     // 58 top right
-	(bLength)*scale, bLowerHight * scale, (bLowerWidth)*scale, 1.0f, 1.0f, 1.0f, 0.2f, 0.0f,     // 57 bottom left
-	(bLength)*scale, bLowerHight * scale, (-bLowerWidth) * scale, 1.0f, 1.0f, 1.0f, 0.2f, 1.0f,     // 56 top right
+	(bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,					1.0f, 1.0f, 1.0f,       0.0f, 1.0f,     // 59 bottom left
+	(bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,						1.0f, 1.0f, 1.0f,		0.0f, 0.0f,     // 58 top right
+	(bLength)*scale, bLowerHight * scale, (bLowerWidth)*scale,													1.0f, 1.0f, 1.0f,		0.3f, 0.0f,     // 57 bottom left
+	(bLength)*scale, bLowerHight * scale, (-bLowerWidth) * scale,												1.0f, 1.0f, 1.0f,		0.3f, 0.8f,     // 56 top right
 
 	//rechte schr?gseite
-	(bLength + zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,     1.0f, 1.0f, 1.0f,    0.0f, 1.0f,     // 63 top right
-	(bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,     // 62 bottom
-	(bLength)*scale, bLowerHight * scale, (bLowerWidth)*scale, 1.0f, 1.0f, 1.0f, 0.2f, 0.0f,     // 61 bottom left
-	(bLength)*scale, bUpperHight * scale, (bUpperWidth)*scale, 1.0f, 1.0f, 1.0f, 0.2f, 1.0f,     // 60 top right
+	(bLength + zLengthMod) * scale,  (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,		1.0f, 1.0f, 1.0f,		0.0f, 1.0f,     // 63 top right
+	(bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,						1.0f, 1.0f, 1.0f,		0.0f, 0.0f,     // 62 bottom
+	(bLength)*scale, bLowerHight * scale, (bLowerWidth)*scale,													1.0f, 1.0f, 1.0f,		0.3f, 0.0f,     // 61 bottom left
+	(bLength)*scale, bUpperHight * scale, (bUpperWidth)*scale,													1.0f, 1.0f, 1.0f,		0.3f, 0.8f,     // 60 top right
 
 	//obere Schr?gseite
-	(bLength + zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,         1.0f, 1.0f, 1.0f,       0.5f, 0.0f,     // 67 bottom left
-	(bLength + zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,     // 66 top right
-	(bLength)*scale, bUpperHight * scale, (bUpperWidth)*scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.3f,     // 65 bottom left
-	(bLength)*scale, bUpperHight * scale, (-bUpperWidth) * scale, 1.0f, 1.0f, 1.0f, 0.5f, 0.3f,     // 64 top right
+	(bLength + zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,      1.0f, 1.0f, 1.0f,       1.0f, 0.0f,     // 67 bottom left
+	(bLength + zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,		1.0f, 1.0f, 1.0f,		0.0f, 0.0f,     // 66 top right
+	(bLength)*scale, bUpperHight * scale, (bUpperWidth)*scale,													1.0f, 1.0f, 1.0f,		0.0f, 0.3f,     // 65 bottom left
+	(bLength)*scale, bUpperHight * scale, (-bUpperWidth) * scale,												1.0f, 1.0f, 1.0f,		1.0f, 0.3f,     // 64 top right
 
 	//========== vordere Seiten ==========
 
 	//unterseite
-	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //71
-	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //70
-	(bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,     // 69 top right
-	(bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,     // 68 bottom left
+	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,										1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //71
+	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,										1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //70
+	(bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,																	1.0f, 1.0f, 1.0f,	1.0f, 0.0f,     // 69 top right
+	(bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,																1.0f, 1.0f, 1.0f,	1.0f, 1.0f,     // 68 bottom left
 
 	//linke seite
-	(bLength + zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, // 72 bottom left
-	(bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, // 73 bottom left
-	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //74
-	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //75
+	(bLength + zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,													1.0f, 1.0f, 1.0f, 1.0f, 1.0f, // 72 bottom left
+	(bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod) * scale,																1.0f, 1.0f, 1.0f, 1.0f, 0.0f, // 73 bottom left
+	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,										1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //74
+	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //75
 
 	//oberseite
-	(bLength + zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,     // 76 bottom left
-	(bLength + zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,     // 77 top right
-	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //78
-	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //79
+	(bLength + zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (-bUpperWidth + zSlopeMod) * scale,													1.0f, 1.0f, 1.0f, 1.0f, 1.0f,     // 76 bottom left
+	(bLength + zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,													1.0f, 1.0f, 1.0f, 1.0f, 0.0f,     // 77 top right
+	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,		1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //78
+	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //79
 
 	//rechte Seite
-	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f, //83 oben rechts
+	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,		1.0f, 1.0f, 1.0f,	1.0f, 1.0f, //83 oben rechts
 	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,										1.0f, 1.0f, 1.0f,	1.0f, 0.0f, //82 unten rechts
-	(bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,																1.0f, 1.0f, 1.0f,	0.0f, 0.0f, // 81 unten left
+	(bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod) * scale,																	1.0f, 1.0f, 1.0f,	0.0f, 0.0f, // 81 unten left
 	(bLength + zLengthMod) * scale, (bUpperHight - zHightMod) * scale, (bUpperWidth - zSlopeMod) * scale,													1.0f, 1.0f, 1.0f,	0.0f, 1.0f, // oben links
 
 	//hintere Seite
-	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //87
-	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //86
-	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //85
-	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //84
+	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,										1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //87
+	(cUpperLenth + bLength + zLengthMod) * scale, bLowerHight * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,										1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //86
+	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (bLowerWidth - zSlopeMod - cWidthMod) * scale,		1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //85
+	(cUpperLenth + bLength + zLengthMod) * scale, (bUpperHight - zHightMod - cUpperHightMod) * scale, (-bLowerWidth + zSlopeMod + cWidthMod) * scale,		1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //84
 
 	//========== neck ==========
 
@@ -322,59 +322,59 @@ void ATAT::drawBodySetup(GLfloat scale) {
 	//===== cockpit =====
 	
 	//oben
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //124
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (headLowerWidth - headFLWidth - 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //126
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //125
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //127
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (headLowerWidth - headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	1.0f, 1.0f, //124
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (headLowerWidth - headFLWidth - 0.04)* scale,			1.0f, 1.0f, 1.0f,	0.8f, 0.5f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale,			1.0f, 1.0f, 1.0f,	0.2f, 0.5f, //125
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (-headLowerWidth + headFLWidth)* scale,	1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //127
 
 	//unten
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //124
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (headLowerWidth - headFLWidth - 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //126
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //125
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //127
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (headLowerWidth - headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	1.0f, 1.0f, //124
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (headLowerWidth - headFLWidth - 0.04)* scale,				1.0f, 1.0f, 1.0f,	0.8f, 0.5f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale,			1.0f, 1.0f, 1.0f,	0.2f, 0.5f, //125
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (-headLowerWidth + headFLWidth)* scale,	1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //127
 
 	//trapez rechts
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (headLowerWidth - headFLWidth - 0.04)* scale,			1.0f, 1.0f, 1.0f,	1.0f, 1.0f, //126
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (headLowerWidth - headFLWidth - 0.04)* scale,				1.0f, 1.0f, 1.0f,	1.0f, 0.0f, //126
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (headLowerWidth - headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //124
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (headLowerWidth - headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //124
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (headLowerWidth - headFLWidth - 0.04)* scale,			1.0f, 1.0f, 1.0f,	0.8f, 0.8f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (headLowerWidth - headFLWidth - 0.04)* scale,				1.0f, 1.0f, 1.0f,	0.8f, 0.5f, //126
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (headLowerWidth - headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	0.2f, 0.0f, //124
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (headLowerWidth - headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	0.2f, 1.0f, //124
 
 	//trapez links
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, //124
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //124
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //126
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //126
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.03)* scale, (-headLowerWidth + headFLWidth)* scale,	1.0f, 1.0f, 1.0f,	0.2f, 1.0f, //124
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, (headHight - upperSlopeMod - 0.12)* scale, (-headLowerWidth + headFLWidth)* scale,	1.0f, 1.0f, 1.0f,	0.2f, 0.0f, //124
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale,			1.0f, 1.0f, 1.0f,	0.8f, 0.5f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale,			1.0f, 1.0f, 1.0f,	0.8f, 0.8f, //126
 
 	//front
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale,			1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //125
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (headLowerWidth - headFLWidth - 0.04)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //126
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (headLowerWidth - headFLWidth - 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //126
-	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //125
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale,			1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //125
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.1)* scale, (headLowerWidth - headFLWidth - 0.04)* scale,				1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (headLowerWidth - headFLWidth - 0.04)* scale,			1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //126
+	(headBackSidePos + headLowerLength + 0.025)* scale, (headHight - upperSlopeMod - 0.07)* scale, (-headLowerWidth + headFLWidth + 0.04)* scale,			1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //125
 
 
 	//===== weaponrack =====
 
 	//underside
-	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale,											1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //121
-	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //121
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //121
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //121
+	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale,												1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //121
+	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale,												1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (headLowerWidth - headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	1.0f, 0.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (-headLowerWidth + headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	1.0f, 1.0f, //121
 
 	//front
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale,			1.0f, 1.0f, 1.0f,	0.0f, 1.0f, //121
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //121
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //121
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale,				1.0f, 1.0f, 1.0f,	0.2f, 0.5f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale,				1.0f, 1.0f, 1.0f,	0.8f, 0.5f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (-headLowerWidth + headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	0.8f, 0.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (headLowerWidth - headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	0.2f, 0.0f, //121
 
 	//right sides
-	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale,											1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //121
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.5f, 0.5f, //121
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (headLowerWidth - headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //121
+	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale,												1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (headLowerWidth - headFLWidth)* scale,				1.0f, 1.0f, 1.0f,	0.5f, 0.5f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (headLowerWidth - headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	1.0f, 0.0f, //121
 
-	//left
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, //121
-	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.5f, 0.5f, //121
-	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, //121
+		//left
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight - 0.04))* scale, (-headLowerWidth + headFLWidth)* scale,		1.0f, 1.0f, 1.0f,	1.0f, 0.0f, //121
+	(headBackSidePos + headLowerLength - upperSLopeLengthMod)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale,				1.0f, 1.0f, 1.0f,	0.5f, 0.5f, //121
+	(headBackSidePos + 0.05)* scale, ((bLowerHight + neckLowerHightMod - headLowerBackHight))* scale, (-headLowerWidth + headFLWidth)* scale,												1.0f, 1.0f, 1.0f,	0.0f, 0.0f, //121
 };
 	unsigned int indices[] = {  // note that we start from 0!
 		0, 1, 2,
@@ -551,6 +551,8 @@ void ATAT::loadTextures() {
 	//darkMetalTexture = SOIL_load_
 	glGenTextures(1, &darkMetalTexture);
 	glBindTexture(GL_TEXTURE_2D, darkMetalTexture);
+
+	//============= änderung für 2. Texture
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -808,16 +810,16 @@ void ATAT::drawFootSetup(GLfloat scale) {
 		((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      0.0f, 1.0f,                            //0 vorne links   //3 hinten links
 
 		//schr<E4>gseite oben vorne
-		((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      0.0f, 0.1f,
-		((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),                                                           1.0f, 1.0f, 1.0f,      0.0f, 0.0f,        //17
-		((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),                                                              1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //16
-		((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+		((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),             1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+		((legLength)*scale), ((upperLegHeight)*scale), ((-legWidth) * scale),                                                           1.0f, 1.0f, 1.0f,      1.0f, 0.0f,        //17
+		((legLength)*scale), ((upperLegHeight)*scale), ((legWidth)*scale),                                                              1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
+		((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),				1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
 
 		//schr<E4>gseite oben hinten
-		((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),               1.0f, 1.0f, 1.0f,      0.0f, 0.2f,
-		((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),                                                           1.0f, 1.0f, 1.0f,      0.0f, 0.0f,           //16
-		((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),														1.0f, 1.0f, 1.0f,      0.2f, 0.0f,        //17
-		((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      0.2f, 0.2f,
+		((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),               1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
+		((-legLength) * scale), ((upperLegHeight)*scale), ((legWidth)*scale),                                                           1.0f, 1.0f, 1.0f,      1.0f, 0.0f,           //16
+		((-legLength) * scale), ((upperLegHeight)*scale), ((-legWidth) * scale),														1.0f, 1.0f, 1.0f,      0.0f, 0.0f,        //17
+		((-legLength + slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((-legWidth) * scale),            1.0f, 1.0f, 1.0f,      0.0f, 1.0f,
 
 		//trapez rechts
 		((legLength - slopedLegLengthMod) * scale), ((upperLegHeight + slopedLegHighthMod) * scale), ((legWidth)*scale),                1.0f, 1.0f, 1.0f,      1.0f, 1.0f,
