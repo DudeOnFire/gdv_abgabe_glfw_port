@@ -364,7 +364,6 @@ void Rebelbase::drawBaseSetup(GLfloat scale) {
 
 		48, 49, 50,
 		50, 51, 48,
-
 		
 		52, 53, 54,
 		54, 55, 52,
